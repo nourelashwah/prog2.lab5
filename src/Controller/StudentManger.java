@@ -52,6 +52,26 @@ public class StudentManger {
             }
         }
     return null;}
+    public boolean updateStudent(int id, Student newdata){
     
+    for(int i=0;i<students.size();i++)
+    { 
+        Student s=students.get(i);
+    if(s.getId()==id)
+          
+            {
+            s.setName(newdata.getName());
+            s.setAge(newdata.getAge());
+            s.setGender(newdata.getGender());
+            s.setDepartment(newdata.getDeparment());
+            s.setGpa(newdata.getGpa());
+            
+             JOptionPane.showMessageDialog(null,"STUDENT UPDATED SUCCESSFULLY!");
+             return true;
+            }
+    }
+     JOptionPane.showMessageDialog(null,"STUDENT NOT FOUND!");
+     return false;
+    }
     
 }
