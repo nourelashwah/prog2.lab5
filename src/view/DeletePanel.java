@@ -143,6 +143,18 @@ private void LoadTable(List<Student> students){
 
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     model.setRowCount(0);
+    for(Student s : students){
+        // row = name id gpa bool delete
+    Object[] row = {
+    s.getName(),
+        s.getId(),
+        s.getGpa(),
+        false};
+    
+    
+    model.addRow(row);
+    
+    }
 }
     private void jButton2ComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton2ComponentResized
          java.net.URL iconURL = getClass().getResource("/view/search-icon.png");
