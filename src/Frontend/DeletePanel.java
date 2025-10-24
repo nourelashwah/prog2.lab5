@@ -1,8 +1,8 @@
-package view;
+package Frontend;
 
 
-import Controller.StudentManager;
-import model.Student;
+import Backend.StudentManager;
+import Backend.Student;
 import java.awt.Image;
 import java.util.List;
 import javax.swing.ImageIcon;

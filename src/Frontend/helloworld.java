@@ -1,4 +1,4 @@
-package view;
+package Frontend;
 
 
 import java.util.Scanner;
