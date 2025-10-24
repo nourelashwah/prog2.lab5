@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package view;
 
 
@@ -12,10 +9,6 @@ import javax.swing.BorderFactory;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-/**
- *
- * @author it
- */
 public class LoginPanel extends javax.swing.JPanel {
 
     
