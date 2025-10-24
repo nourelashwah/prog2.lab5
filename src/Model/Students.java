@@ -16,6 +16,7 @@ public class Students extends Person {
     private int id;
     private String department;
     private float gpa;
+    private StudentManager database = new StudentManager();
   
     
     public Students(int id,String fullName,int age,String gender,String department,float gpa) {
