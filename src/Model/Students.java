@@ -46,7 +46,6 @@ public class Students extends Person {
     public void setID(int id) {
         if (id == 1) //the user wants to generate an ID
         {
-         
             int newID = generateID();
             this.id = newID;
             System.out.println("Successfully generated an ID");
@@ -55,11 +54,16 @@ public class Students extends Person {
             if (!(database.searchStudent(String.valueOf(id)) == null)) 
             {
                 System.out.println("ERROR, ID already exsists!");
-                return;
             }
             else{
-                this.id = id;
+                if ( id < 1000 || id > 10000)
+                {
+                    System.out.println("ERROR, ID should be between 1000 and 10000");
+                }
+                else{
+                    this.id = id;
                 System.out.println("Valid entered ID");
+                }
             }
         }
     }
