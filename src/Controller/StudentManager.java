@@ -21,7 +21,7 @@ public class StudentManager {
     }
 
     public void addStudent(Student s) {
-        if (s.getName() == null || s.getName().isEmpty()) {
+        if (s.getName() == null || s.getFullName().isEmpty()) {
             JOptionPane.showMessageDialog(null, "NAME CAN'T BE EMOTY!");//to write in the gui
             return;
         }
@@ -45,7 +45,7 @@ public class StudentManager {
     public Student searchStudent(String keyword) {
         for (int i = 0; i < students.size(); i++) {
             Student s = students.get(i);
-            if (String.valueOf(s.getId()).equals(keyword) || s.getName().equalsIgnoreCase(keyword)) {
+            if (String.valueOf(s.getId()).equals(keyword) || s.getFullName().equalsIgnoreCase(keyword)) {
                 return s;
             }
         }
@@ -57,7 +57,7 @@ public class StudentManager {
         for (int i = 0; i < students.size(); i++) {
             Student s = students.get(i);
             if (s.getId() == id) {
-                s.setName(newdata.getName());
+                s.setName(newdata.getFullName());
                 s.setAge(newdata.getAge());
                 s.setGender(newdata.getGender());
                 s.setDepartment(newdata.getDeparment());
