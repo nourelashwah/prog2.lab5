@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.event.DocumentEvent;
@@ -19,38 +20,136 @@ public class LoginPanel extends javax.swing.JPanel {
     
     private final  String admin = "admin";
     private final String password = "1234";
-    private boolean usernameTouched = false , passTouched = false;
+   private boolean correctuser = false , correctpassword = false;
     /**
      * Creates new form LoginPanel
      */
     public LoginPanel() {
         initComponents();
+        
+        btnDisabled();
         validationstart();
     }
+    
+private void btnDisabled(){
+submitbtn.setEnabled(false);
+submitbtn.setBackground(new java.awt.Color(105, 105, 105));
+submitbtn.setForeground(Color.black);
+
+
+
+}
+private void btnEnable(){
+
+submitbtn.setEnabled(true);
+submitbtn.setBackground(Color.GREEN);
+submitbtn.setForeground(Color.black);
+}
 private void validationstart(){
-    submitbtn.setEnabled(false);
+    
+    usernameError.setVisible(false);
+    passwordError.setVisible(false);
     usernameField.getDocument().addDocumentListener(new DocumentListener() {
         @Override
         public void insertUpdate(DocumentEvent e) {
-            
+             checkuser();
         }
 
         @Override
         public void removeUpdate(DocumentEvent e) {
-            
+            checkuser();
         }
 
         @Override
         public void changedUpdate(DocumentEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+        
+        private void checkuser(){
+        String error = validateIN_user(usernameField.getText().trim());
+        if(!error.isEmpty()){
+        usernameError.setText(error);
+        usernameError.setVisible(true);
+        
+        }
+        else{
+            usernameError.setText(error);
+        usernameError.setVisible(false);
+        
+        }
+        if(correctpassword && correctuser){
+            btnEnable();
+        }
+        else{
+        btnDisabled();
+        }
+        }
+    });
+    passwordField.getDocument().addDocumentListener(new DocumentListener() {
+        @Override
+        public void insertUpdate(DocumentEvent e) {
+             checkuser();
+        }
+
+        @Override
+        public void removeUpdate(DocumentEvent e) {
+            checkuser();
+        }
+
+        @Override
+        public void changedUpdate(DocumentEvent e) {
+            // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+        
+        private void checkuser(){
+        String error = validateIN_Pass(passwordField.getText().trim());
+        if(!error.isEmpty()){
+        passwordError.setText(error);
+        passwordError.setVisible(true);
+        
+        }
+        else{
+            passwordError.setText(error);
+        passwordError.setVisible(false);
+        
+        }
+         if(correctpassword && correctuser){
+            btnEnable();
+        }
+        else{
+        btnDisabled();
+        }
         }
     });
 }
+private final String validateIN_Pass(String s){
 
+correctpassword = false;
+if(s.isEmpty()){
+return "PASSWORD CANNOT BE EMPTY";
 
-private void validateIN(){
+}
+else if(!s.equals(password)){
+return "PASSWORD NOT VALID";
 
+}
+correctpassword = true;
+return "";
 
+}
+
+private final String validateIN_user(String s){
+correctuser = false;
+if(s.isEmpty()){
+return "USERNAME CANNOT BE EMPTY";
+
+}
+else if(!s.equals(admin)){
+return "USERNAME NOT VALID";
+
+}
+correctuser = true;
+return "";
 
 }
     /**
@@ -62,14 +161,20 @@ private void validateIN(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        usernameField = new javax.swing.JTextField();
+        Title = new javax.swing.JLabel();
+        inputs_errors = new javax.swing.JPanel();
         usernameLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
-        Title = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
-        submitbtn = new java.awt.Button();
+        usernameField = new javax.swing.JTextField();
         usernameError = new javax.swing.JLabel();
         passwordError = new javax.swing.JLabel();
+        submitbtn = new javax.swing.JButton();
+
+        Title.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title.setText("LOGIN");
+        Title.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         usernameLabel.setLabelFor(usernameField);
         usernameLabel.setText("USERNAME");
@@ -77,81 +182,104 @@ private void validateIN(){
         passwordLabel.setLabelFor(passwordField);
         passwordLabel.setText("PASSWORD");
 
-        Title.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title.setText("LOGIN");
-        Title.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        submitbtn.setActionCommand("submit");
-        submitbtn.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        submitbtn.setLabel("SUBMIT");
-        submitbtn.addActionListener(new java.awt.event.ActionListener() {
+        usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitbtnActionPerformed(evt);
+                usernameFieldActionPerformed(evt);
             }
         });
 
         usernameError.setBackground(new java.awt.Color(255, 0, 51));
         usernameError.setForeground(new java.awt.Color(0, 0, 0));
-        usernameError.setPreferredSize(new java.awt.Dimension(20, 20));
+        usernameError.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        usernameError.setOpaque(true);
 
-        passwordError.setBackground(new java.awt.Color(204, 0, 51));
+        passwordError.setBackground(new java.awt.Color(204, 0, 102));
         passwordError.setForeground(new java.awt.Color(0, 0, 0));
+        passwordError.setOpaque(true);
+
+        submitbtn.setBackground(new java.awt.Color(103, 103, 103));
+        submitbtn.setForeground(new java.awt.Color(0, 0, 0));
+        submitbtn.setText("SUBMIT");
+        submitbtn.setEnabled(false);
+
+        javax.swing.GroupLayout inputs_errorsLayout = new javax.swing.GroupLayout(inputs_errors);
+        inputs_errors.setLayout(inputs_errorsLayout);
+        inputs_errorsLayout.setHorizontalGroup(
+            inputs_errorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inputs_errorsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(inputs_errorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(inputs_errorsLayout.createSequentialGroup()
+                        .addComponent(usernameLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(usernameField))
+                    .addGroup(inputs_errorsLayout.createSequentialGroup()
+                        .addComponent(passwordLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(inputs_errorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(inputs_errorsLayout.createSequentialGroup()
+                                .addComponent(submitbtn)
+                                .addGap(0, 130, Short.MAX_VALUE))
+                            .addComponent(usernameError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(passwordError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(passwordField))))
+                .addGap(38, 38, 38))
+        );
+        inputs_errorsLayout.setVerticalGroup(
+            inputs_errorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inputs_errorsLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(inputs_errorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usernameLabel)
+                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(usernameError, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(inputs_errorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordLabel)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(passwordError, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(submitbtn))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Title, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(usernameLabel)
-                    .addComponent(passwordLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwordError)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(usernameError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(usernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                        .addComponent(passwordField)))
-                .addGap(133, 133, 133))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(inputs_errors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usernameLabel)
-                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usernameError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordLabel)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordError)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(submitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addComponent(inputs_errors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void submitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbtnActionPerformed
+    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_submitbtnActionPerformed
+    }//GEN-LAST:event_usernameFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
+    private javax.swing.JPanel inputs_errors;
     private javax.swing.JLabel passwordError;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
-    private java.awt.Button submitbtn;
+    private javax.swing.JButton submitbtn;
     private javax.swing.JLabel usernameError;
     private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameLabel;
