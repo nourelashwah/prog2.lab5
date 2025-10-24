@@ -4,8 +4,9 @@
  */
 package Model;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -39,5 +40,14 @@ public class FileManager {
     public Student createStudent(String studentLine){
         String [] split=studentLine.split(",");
         return new Student(Integer.parseInt(split[0]),split[1],Integer.parseInt(split[2]),split[3],split[4],Float.parseFloat(split[5]));
+    }
+    public void loadFile(){
+        students.clear();
+        try(BufferedReader br=new BufferedReader(new FileReader(filename))){
+            String line;
+            while((line=br.readLine())!=null)
+                students.add(createStudent(line));
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null, "ERROR LOADING FILE: "+e.getMessage());
     }
 }
