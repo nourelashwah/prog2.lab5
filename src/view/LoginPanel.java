@@ -23,6 +23,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.Document;
 import javax.swing.border.AbstractBorder;
 import javax.swing.border.Border;
+import view.CustomdesignClasses.*;
 /**
  *
  * @author it
@@ -61,52 +62,7 @@ submitbtn.setForeground(Color.black);
 
 
 
-private class roundedbtn extends JButton{
-private int arcW;
-private int arcH;
 
-        public roundedbtn(String text ,int arcW, int arcH) {
-            super(text);
-            this.arcW = arcW;
-            this.arcH = arcH;
-            setContentAreaFilled(false);
-            setBorderPainted(false);
-            setFocusPainted(false);
-            setOpaque(false);
-
-        }
-        @Override
-        protected void paintComponent(Graphics g){
-        Graphics2D g2 = (Graphics2D) g.create();
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        if(getModel().isArmed() && getModel().isEnabled()){
-        g2.setColor(getBackground().darker()); //when clicked
-            
-        }
-        else if(getModel().isRollover() && getModel().isEnabled()){
-        g2.setColor(getBackground().brighter()); // when hover
-        
-        }
-        else{
-        g2.setColor(getBackground());
-        }
-        g2.fillRoundRect(0, 0, getWidth() - 1, getHeight() - 1, arcW, arcH);
-        super.paintComponent(g2);
-        g2.dispose();
-        }
-
-        @Override
-        public Dimension getPreferredSize() {
-            Dimension size = super.getPreferredSize();
-            size.width = Math.max(size.width, size.height); // For circular buttons
-            size.height = Math.max(size.width, size.height);
-            return size;
-        
-        }
-
-
-
-}
 private void validationstart(){
     
     usernameError.setVisible(false);
@@ -253,14 +209,15 @@ return "";
 
         usernameError.setBackground(new java.awt.Color(255, 0, 51));
         usernameError.setForeground(new java.awt.Color(0, 0, 0));
-        usernameError.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        usernameError  = new CustomdesignClasses.RoundedLABELS("",20,usernameError.getBackground());
+       
         usernameError.setOpaque(true);
 
         passwordError.setBackground(new java.awt.Color(204, 0, 102));
         passwordError.setForeground(new java.awt.Color(0, 0, 0));
         passwordError.setOpaque(true);
         
-        submitbtn = new roundedbtn("SUBMIT", 20, 20);
+        submitbtn = new CustomdesignClasses.roundedbtn("SUBMIT", 20, 20);
         submitbtn.setBackground(Color.GRAY);
         submitbtn.setForeground(Color.BLACK);
         submitbtn.setEnabled(false);
