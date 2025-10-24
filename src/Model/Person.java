@@ -10,28 +10,19 @@ package Model;
  */
 public abstract class Person {
     
-    private int id;
+    
     private String fullName;
     private int age;
     private String gender;
-    private String department;
-    private float gpa;
     
-    public Person(int id,String fullName,int age,String gender,String department,float gpa) {
+    
+    public Person(String fullName,int age,String gender) {
         
-        setPersonID(id);
         setFullName(fullName);
         setAge(age);
         setGender(gender);
-        setDepartment(department);
-        setGpa(gpa);
+        
     }
-    
-    //nseb dlw2ty el validation
-    public void setPersonID(int id) {
-        this.id = id;
-    }
-
     
     private boolean validName ( String fullName )
     {
@@ -87,35 +78,11 @@ public abstract class Person {
     }
 
     public void setGender(String gender) {
+        
+        if (!gender.isEmpty())
         this.gender = gender;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    
-    private boolean validGPA(float gpa)
-    {
-        if (gpa < 0.0 || gpa > 4.0 )
-        {
-            System.out.println("!!ERROR, Gpa should be between 0.0 and 4.0");
-            return false;
-        }
-        return true;
-    }
-    
-    
-    public void setGpa(float gpa) {
-        if (validGPA(gpa))
-        {
-            this.gpa=gpa;
-        }
-    }
-
-    public int getID() {
-        return id;
-    }
 
     public String getFullName() {
         return fullName;
@@ -128,12 +95,5 @@ public abstract class Person {
     public String getGender() {
         return gender;
     }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public float getGpa() {
-        return gpa;
-    }
+    
 }
