@@ -6,7 +6,7 @@ package Controller;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+import model.Student;
 /**
  *
  * @author LapTop
@@ -38,7 +38,7 @@ public class StudentManager {
 
     }
 
-    public ArrayList<student> getAllStudents() {
+    public ArrayList<Student> getAllStudents() {
         return students;
     }
 
