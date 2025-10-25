@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view;
+package Frontend;
 
+import Backend.Students;
 import Controller.StudentManager;
-import Model.Students;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -100,7 +100,7 @@ public class SearchUpdatePanel extends JPanel {
         else if(manager.searchStudent(key)==null)
             JOptionPane.showMessageDialog(SearchPanel,"Student not found");
         else{
-            Students found=manager.searchStudent(key);
+            Students found=(Students) manager.searchStudent(key);
             JOptionPane.showMessageDialog(SearchPanel, "Student found: "+found.getFullName()+"\nID: "+found.getID()+"\nAge: "+found.getAge()+"\nGender: "+found.getGender()+"\nDepartment: "+found.getDepartment()+"\nCurrent GPA: "+found.getGpa());
         }
         
