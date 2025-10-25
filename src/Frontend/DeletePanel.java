@@ -15,8 +15,19 @@ public class DeletePanel extends javax.swing.JPanel {
 
     public final StudentManager manager ;
     public DeletePanel(StudentManager manager) {
-        this.manager = manager;
-        initComponents();
+         this.manager = manager;
+         this.manager.addStudent(new Student(3, "Sara", 22, "Female", "IT", 3.2));
+this.manager.addStudent(new Student(4, "Omar", 23, "Male", "ME", 2.9));
+this.manager.addStudent(new Student(5, "Laila", 20, "Female", "CS", 3.7));
+this.manager.addStudent(new Student(6, "Khaled", 24, "Male", "CE", 2.8));
+this.manager.addStudent(new Student(7, "Hassan", 21, "Male", "EE", 3.1));
+this.manager.addStudent(new Student(8, "Mariam", 22, "Female", "IT", 3.9));
+this.manager.addStudent(new Student(9, "Youssef", 20, "Male", "CS", 3.6));
+this.manager.addStudent(new Student(10, "Noor", 23, "Female", "CE", 3.4));
+
+    initComponents();
+LoadTable(this.manager.getAllStudents());
+
     }
 
     @SuppressWarnings("unchecked")
@@ -26,7 +37,9 @@ public class DeletePanel extends javax.swing.JPanel {
         scrollMain = new javax.swing.JScrollPane();
         Title = new javax.swing.JLabel();
         deleteTable = new javax.swing.JTable();
-      
+      deleteTable.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 16));
+deleteTable.setRowHeight(28);
+
         searchid = new javax.swing.JTextField();
         SearchLabel = new javax.swing.JLabel();
         SearchBtn = new CustomdesignClasses.roundedbtn("SEARCH BY ID", 15, 15);
