@@ -1,4 +1,6 @@
-package view;
+package frontend;
+
+import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -65,9 +67,7 @@ public class ViewStudentPanel extends javax.swing.JFrame {
 
         refresh.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         refresh.setText("refresh");
-        refresh.setActionCommand("refresh");
         getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 73, -1));
-        refresh.getAccessibleContext().setAccessibleName("refresh");
         refresh.getAccessibleContext().setAccessibleDescription("");
 
         studentTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -148,4 +148,14 @@ public class ViewStudentPanel extends javax.swing.JFrame {
     private javax.swing.JTable studentTable;
     private javax.swing.JLabel viewStudent;
     // End of variables declaration//GEN-END:variables
+
+    private void loadStudentTable()
+    {
+        DefaultTableModel model=(DefaultTableModel) studentTable.getModel();
+        model.setRowCount(0);//to make sure table is empty men old data
+        
+        
+    
+    }
 }
+
