@@ -105,14 +105,14 @@ public class SearchUpdatePanel extends JPanel {
         }
         
     }//GEN-LAST:event_SearchBtnActionPerformed
-    public static void main(String[] args) {
-        SearchUpdatePanel panel=new SearchUpdatePanel();
-        JFrame frame=new JFrame("Student Search");
-        frame.setVisible(true);
-        frame.setSize(new Dimension(426,122));
-        frame.setLocationRelativeTo(null);
-        frame.setContentPane(panel);
-    }
+//    public static void main(String[] args) {
+//        SearchUpdatePanel panel=new SearchUpdatePanel();
+//        JFrame frame=new JFrame("Student Search");
+//        frame.setVisible(true);
+//        frame.setSize(new Dimension(426,122));
+//        frame.setLocationRelativeTo(null);
+//        frame.setContentPane(panel);
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SearchBtn;
