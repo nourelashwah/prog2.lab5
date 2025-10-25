@@ -13,17 +13,17 @@ import javax.swing.JOptionPane;
  * @author LapTop
  */
 public class StudentManager {
-
     private ArrayList<Students> students;
 
+    private FileManager manager;
     public StudentManager() {
         students = new ArrayList<>();
-
+        manager=new FileManager("Students.txt", students);
     }
 
     public void addStudent(Students s) {
         if ( s.getFullName().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "NAME CAN'T BE EMOTY!");//to write in the gui
+            JOptionPane.showMessageDialog(null, "NAME CAN'T BE EMPTY!");//to write in the gui
             return;
         }
         if (s.getAge() <= 0) {
@@ -36,6 +36,7 @@ public class StudentManager {
         }
         students.add(s);
         JOptionPane.showMessageDialog(null, "STUDENT ADDED SUCCESSFULLY!");
+        manager.saveToFile();
 
     }
 
@@ -61,6 +62,7 @@ public class StudentManager {
                 s  = newdata;
 
                 JOptionPane.showMessageDialog(null, "STUDENT UPDATED SUCCESSFULLY!");
+                manager.saveToFile();
                 return true;
             }
         }
@@ -74,10 +76,11 @@ public class StudentManager {
             if (s.getID()== id) {
                 students.remove(s);
                 JOptionPane.showMessageDialog(null, "STUDENT DELETED SUCCESSFULLY!");
+                manager.saveToFile();
                 return true;
             }
         }
-        JOptionPane.showMessageDialog(null, "FAILED TO DELETW STUDENT STUDENT NOT FOUND!");
+        JOptionPane.showMessageDialog(null, "FAILED TO DELETE! STUDENT STUDENT NOT FOUND!");
         return false;
     }
 
