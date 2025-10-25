@@ -4,8 +4,7 @@
  */
 package view;
 
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
+import Model.Person;
 import Controller.StudentManager;
 import Model.Students;
 import javax.swing.JOptionPane;
@@ -20,8 +19,10 @@ public class StudentForm extends javax.swing.JFrame {
     /**
      * Creates new form StudentForm
      */
-    StudentManager manager = new StudentManager();
-    public StudentForm() {
+    StudentManager manager;
+    
+    public StudentForm(StudentManager manager) {
+        this.manager = manager;
         initComponents();
     }
 
@@ -35,33 +36,33 @@ public class StudentForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
+        fullnameLabel = new javax.swing.JLabel();
         idTXT = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        ageLabel = new javax.swing.JLabel();
         ageTXT = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
         fullnameTXT = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        genderLabel = new javax.swing.JLabel();
+        departmentLabel = new javax.swing.JLabel();
         departmentComboBox = new javax.swing.JComboBox<>();
         genderComboBox = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
+        gpaLabel = new javax.swing.JLabel();
         gpaTXT = new javax.swing.JTextField();
         AddStudent = new javax.swing.JButton();
-        attentionTXT = new javax.swing.JLabel();
+        attentionLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Imprint MT Shadow", 3, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Add Student Form");
-        jLabel1.setToolTipText("");
+        titleLabel.setFont(new java.awt.Font("Imprint MT Shadow", 3, 24)); // NOI18N
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("Add Student Form");
+        titleLabel.setToolTipText("");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel2.setText("Full Name:");
+        fullnameLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        fullnameLabel.setText("Full Name:");
 
         idTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,8 +70,8 @@ public class StudentForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel3.setText("Age:");
+        ageLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ageLabel.setText("Age:");
 
         ageTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,8 +79,8 @@ public class StudentForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel4.setText("ID: ");
+        idLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        idLabel.setText("ID: ");
 
         fullnameTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,11 +88,11 @@ public class StudentForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel5.setText("Gender:");
+        genderLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        genderLabel.setText("Gender:");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel6.setText("Department:");
+        departmentLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        departmentLabel.setText("Department:");
 
         departmentComboBox.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         departmentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer and Communication engineering", "Mechatronics and Robotics engineering", "Electrical engineering", "Aerospace engineering", "Biomedical engineering", "Construction engineering", "Production engineering" }));
@@ -104,8 +105,8 @@ public class StudentForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        jLabel7.setText("Gpa: ");
+        gpaLabel.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        gpaLabel.setText("Gpa: ");
 
         AddStudent.setBackground(new java.awt.Color(204, 204, 204));
         AddStudent.setFont(new java.awt.Font("Footlight MT Light", 1, 18)); // NOI18N
@@ -117,9 +118,9 @@ public class StudentForm extends javax.swing.JFrame {
             }
         });
 
-        attentionTXT.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        attentionTXT.setForeground(new java.awt.Color(204, 0, 0));
-        attentionTXT.setText("ATTENTION!! Enter 1 to generate an ID, or enter the ID");
+        attentionLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        attentionLabel.setForeground(new java.awt.Color(204, 0, 0));
+        attentionLabel.setText("ATTENTION!! Enter 1 to generate an ID, or enter the ID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,16 +133,16 @@ public class StudentForm extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(fullnameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(genderLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(gpaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(25, 25, 25))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(departmentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(gpaTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,11 +155,11 @@ public class StudentForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(idTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(attentionTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(attentionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(departmentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -169,33 +170,33 @@ public class StudentForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(idLabel)
                     .addComponent(idTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(attentionTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(attentionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fullnameTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fullnameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ageTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(genderLabel)
                     .addComponent(genderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(departmentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(departmentLabel))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(gpaLabel)
                     .addComponent(gpaTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,7 +212,56 @@ public class StudentForm extends javax.swing.JFrame {
 
     private void AddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddStudentActionPerformed
         
-        JOptionPane.showMessageDialog(this, "Hello!");
+        if ( idTXT.getText().isEmpty() || fullnameTXT.getText().isEmpty() || ageTXT.getText().isEmpty() || gpaTXT.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Please fill all required fields.");
+        return;
+        } 
+        
+        
+       try{ int id = Integer.parseInt(idTXT.getText());
+        String fullName = fullnameTXT.getText();
+        int age = Integer.parseInt(ageTXT.getText());
+        String gender = genderComboBox.getSelectedItem().toString();
+        String department = departmentComboBox.getSelectedItem().toString();
+        float gpa = Float.parseFloat(gpaTXT.getText());
+        
+        
+        
+       if (!Person.validName(fullName) || !Person.validAge(age) || !Students.validGPA(gpa))
+        {
+            return;
+        }
+      boolean idgeneration = Students.handlingID(id);
+       if (!idgeneration)
+       {
+           return;
+       }
+       
+        Students s = new Students(id,fullName,age,gender,department,gpa);
+        
+       
+        manager.addStudent(s);
+        JOptionPane.showMessageDialog(this, "Success!");
+        
+        
+        //han3ml clear tane
+        idTXT.setText("");
+        fullnameTXT.setText("");
+        ageTXT.setText("");
+        gpaTXT.setText("");
+        genderComboBox.setSelectedIndex(0);
+        departmentComboBox.setSelectedIndex(0);
+      
+        }
+       
+       
+       
+        catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+}
+       
+       
+       
     }//GEN-LAST:event_AddStudentActionPerformed
 
     private void idTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTXTActionPerformed
@@ -229,54 +279,24 @@ public class StudentForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StudentForm().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddStudent;
+    private javax.swing.JLabel ageLabel;
     private javax.swing.JTextField ageTXT;
-    private javax.swing.JLabel attentionTXT;
+    private javax.swing.JLabel attentionLabel;
     private javax.swing.JComboBox<String> departmentComboBox;
+    private javax.swing.JLabel departmentLabel;
+    private javax.swing.JLabel fullnameLabel;
     private javax.swing.JTextField fullnameTXT;
     private javax.swing.JComboBox<String> genderComboBox;
+    private javax.swing.JLabel genderLabel;
+    private javax.swing.JLabel gpaLabel;
     private javax.swing.JTextField gpaTXT;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idTXT;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
