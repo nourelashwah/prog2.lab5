@@ -1,5 +1,6 @@
 package frontend;
-
+import backend.StudentManager;
+import backend.Students;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -12,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  * @author LapTop
  */
 public class ViewStudentPanel extends javax.swing.JFrame {
-    
+    private StudentManager manager=new StudentManager();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewStudentPanel.class.getName());
 
     /**
@@ -149,13 +150,25 @@ public class ViewStudentPanel extends javax.swing.JFrame {
     private javax.swing.JLabel viewStudent;
     // End of variables declaration//GEN-END:variables
 
-    private void loadStudentTable()
+   private void loadStudentTable()
     {
         DefaultTableModel model=(DefaultTableModel) studentTable.getModel();
         model.setRowCount(0);//to make sure table is empty men old data
-        
-        
-    
+        for(int i=0;i<manager.getAllStudents().size();i++)
+        {
+            Students s= manager.getAllStudents().get(i);
+            model.addRow(new Object[]{
+           s.getID(),
+            s.getFullName(),
+            s.getAge(),
+            s.getGender(),
+            s.getDepartment(),
+            s.getGpa()
+                });
+        }
     }
 }
+    
+         
+
 
