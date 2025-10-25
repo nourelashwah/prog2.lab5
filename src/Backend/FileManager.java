@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import model.Student;
 
 /**
  *
@@ -19,9 +18,9 @@ import model.Student;
  */
 public class FileManager {
     private String filename;
-    private ArrayList<Student> students;
+    private ArrayList<Students> students;
 
-    public FileManager(String filename, ArrayList<Student> students) {
+    public FileManager(String filename, ArrayList<Students> students) {
         this.filename = filename;
         this.students = students;
     }
@@ -29,7 +28,7 @@ public class FileManager {
     public void saveToFile(){
         try(PrintWriter pw=new PrintWriter(new FileWriter(filename))){
             for(int i=0;i<students.size();i++){
-                Student stu=students.get(i);
+                Students stu=students.get(i);
                 pw.println(stu.toString());
             }
             JOptionPane.showMessageDialog(null, "FILE SAVED SUCCESSFULLY!");
@@ -37,9 +36,9 @@ public class FileManager {
             JOptionPane.showMessageDialog(null, "ERROR SAVING FILE: "+e.getMessage());
         }
     }
-    public Student createStudent(String studentLine){
+    public Students createStudent(String studentLine){
         String [] split=studentLine.split(",");
-        return new Student(Integer.parseInt(split[0]),split[1],Integer.parseInt(split[2]),split[3],split[4],Float.parseFloat(split[5]));
+        return new Students(Integer.parseInt(split[0]),split[1],Integer.parseInt(split[2]),split[3],split[4],Float.parseFloat(split[5]));
     }
     public void loadFile(){
         students.clear();
@@ -49,5 +48,6 @@ public class FileManager {
                 students.add(createStudent(line));
         }catch(IOException e){
             JOptionPane.showMessageDialog(null, "ERROR LOADING FILE: "+e.getMessage());
+        }
     }
 }
