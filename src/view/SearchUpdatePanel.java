@@ -96,7 +96,7 @@ public class SearchUpdatePanel extends JPanel {
         // TODO add your handling code here:
         String key=SearchField.getText();
         if(key.equals(""))
-            JOptionPane.showMessageDialog(SearchPanel, "Enter student number or ID");
+            JOptionPane.showMessageDialog(SearchPanel, "Enter student name or ID");
         else if(manager.searchStudent(key)==null)
             JOptionPane.showMessageDialog(SearchPanel,"Student not found");
         else{
