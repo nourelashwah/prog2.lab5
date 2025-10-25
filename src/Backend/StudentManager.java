@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Backend;
+package Controller;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author LapTop
@@ -20,7 +21,7 @@ public class StudentManager {
     }
 
     public void addStudent(Student s) {
-        if (s.getName() == null || s.getName().isEmpty()) {
+        if (s.getName() == null || s.getFullName().isEmpty()) {
             JOptionPane.showMessageDialog(null, "NAME CAN'T BE EMOTY!");//to write in the gui
             return;
         }
@@ -37,14 +38,14 @@ public class StudentManager {
 
     }
 
-    public ArrayList<Student> getAllStudents() {
+    public ArrayList<student> getAllStudents() {
         return students;
     }
 
     public Student searchStudent(String keyword) {
         for (int i = 0; i < students.size(); i++) {
             Student s = students.get(i);
-            if (String.valueOf(s.getId()).equals(keyword) || s.getName().equalsIgnoreCase(keyword)) {
+            if (String.valueOf(s.getId()).equals(keyword) || s.getFullName().equalsIgnoreCase(keyword)) {
                 return s;
             }
         }
@@ -56,7 +57,7 @@ public class StudentManager {
         for (int i = 0; i < students.size(); i++) {
             Student s = students.get(i);
             if (s.getId() == id) {
-                s.setName(newdata.getName());
+                s.setName(newdata.getFullName());
                 s.setAge(newdata.getAge());
                 s.setGender(newdata.getGender());
                 s.setDepartment(newdata.getDeparment());
