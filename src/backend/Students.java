@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package Backend;
 
 import java.util.Random;
 
@@ -27,7 +27,7 @@ public class Students extends Person {
         
     }
     
-    
+    //
     private int generateID()
     {
         Random autom = new Random(); //method gowa java bt-generate random integers w hahot el limit

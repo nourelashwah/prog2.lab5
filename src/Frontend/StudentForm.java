@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view;
+package Frontend;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
-import Controller.StudentManager;
+import Backend.StudentManager;
 import Model.Students;
 import javax.swing.JOptionPane;
 
@@ -53,8 +53,7 @@ public class StudentForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+   
         jLabel1.setFont(new java.awt.Font("Imprint MT Shadow", 3, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add Student Form");

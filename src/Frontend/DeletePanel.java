@@ -2,7 +2,7 @@ package Frontend;
 
 
 import Backend.StudentManager;
-import Backend.Student;
+import Backend.Students;
 import java.awt.Image;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -125,14 +125,14 @@ deleteTable.setRowHeight(28);
 
     private void searchidActionPerformed(java.awt.event.ActionEvent evt) {                                         
     }                                        
-public void LoadTable(List<Student> students){
+public void LoadTable(List<Students> students){
 
     DefaultTableModel model = (DefaultTableModel) deleteTable.getModel();
     model.setRowCount(0);
-    for(Student s : students){
+    for(Students s : students){
     Object[] row = {
-    s.getName(),
-        s.getId(),
+    s.getFullName(),
+        s.getID(),
         s.getGpa(),
         false};
     model.addRow(row);
@@ -174,9 +174,9 @@ public void LoadTable(List<Student> students){
            LoadTable(manager.getAllStudents());
        }
        else{
-       Student st = manager.searchStudent(searchid.getText().trim());
+       Students st = manager.searchStudent(searchid.getText().trim());
        if(st != null){
-           java.util.List<Student> single = new java.util.ArrayList<>();
+           java.util.List<Students> single = new java.util.ArrayList<>();
            single.add(st);
            LoadTable(single);
        }
