@@ -29,21 +29,87 @@ public class ViewStudentPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        viewStudent = new javax.swing.JLabel();
+        refresh = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        studentTable = new javax.swing.JTable();
+        search = new javax.swing.JButton();
+        back = new javax.swing.JButton();
+        searchTxtField = new javax.swing.JTextField();
+        searchtxt = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        viewStudent.setBackground(new java.awt.Color(51, 51, 255));
+        viewStudent.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        viewStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        viewStudent.setText("view student");
+        viewStudent.setToolTipText("view student");
+        getContentPane().add(viewStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 399, 50));
+
+        refresh.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        refresh.setText("refresh");
+        refresh.setActionCommand("refresh");
+        getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 73, -1));
+        refresh.getAccessibleContext().setAccessibleName("refresh");
+        refresh.getAccessibleContext().setAccessibleDescription("");
+
+        studentTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "id", "name", "age", "gender", "department", "gpa"
+            }
+        ));
+        jScrollPane2.setViewportView(studentTable);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 570, 213));
+
+        search.setText("search");
+        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 70, 30));
+
+        back.setText("back");
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        searchTxtField.setText("search here");
+        searchTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTxtFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(searchTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 130, 30));
+
+        searchtxt.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        searchtxt.setText("search by name or id:");
+        getContentPane().add(searchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 30));
+        searchtxt.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTxtFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,5 +137,15 @@ public class ViewStudentPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton back;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton refresh;
+    private javax.swing.JButton search;
+    private javax.swing.JTextField searchTxtField;
+    private javax.swing.JLabel searchtxt;
+    private javax.swing.JTable studentTable;
+    private javax.swing.JLabel viewStudent;
     // End of variables declaration//GEN-END:variables
 }
