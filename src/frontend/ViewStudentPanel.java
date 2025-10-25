@@ -21,6 +21,7 @@ public class ViewStudentPanel extends javax.swing.JFrame {
      */
     public ViewStudentPanel() {
         initComponents();
+        loadStudentTable();
     }
 
     /**
@@ -167,6 +168,12 @@ public class ViewStudentPanel extends javax.swing.JFrame {
                 });
         }
     }
+   private void refreshActionPreformed(java.awt.event.ActionEvent evt)
+   {
+   loadStudentTable();
+   }
+   
+   
 }
     
          
