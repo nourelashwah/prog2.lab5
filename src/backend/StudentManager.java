@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controller;
+package backend;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -13,15 +13,15 @@ import javax.swing.JOptionPane;
  */
 public class StudentManager {
 
-    private ArrayList<Student> students;
+    private ArrayList<Students> students;
 
     public StudentManager() {
         students = new ArrayList<>();
 
     }
 
-    public void addStudent(Student s) {
-        if (s.getName() == null || s.getFullName().isEmpty()) {
+    public void addStudent(Students s) {
+        if (s.getFullName() == null || s.getFullName().isEmpty()) {
             JOptionPane.showMessageDialog(null, "NAME CAN'T BE EMOTY!");//to write in the gui
             return;
         }
@@ -38,29 +38,29 @@ public class StudentManager {
 
     }
 
-    public ArrayList<student> getAllStudents() {
+    public ArrayList<Students> getAllStudents() {
         return students;
     }
 
-    public Student searchStudent(String keyword) {
+    public Students searchStudent(String keyword) {
         for (int i = 0; i < students.size(); i++) {
-            Student s = students.get(i);
-            if (String.valueOf(s.getId()).equals(keyword) || s.getFullName().equalsIgnoreCase(keyword)) {
+            Students s = students.get(i);
+            if (String.valueOf((char) s.getID()).equals(keyword) || s.getFullName().equalsIgnoreCase(keyword)) {
                 return s;
             }
         }
         return null;
     }
 
-    public boolean updateStudent(int id, Student newdata) {
+    public boolean updateStudent(int id, Students newdata) {
 
         for (int i = 0; i < students.size(); i++) {
-            Student s = students.get(i);
-            if (s.getId() == id) {
-                s.setName(newdata.getFullName());
+            Students s = students.get(i);
+            if (s.getID() == id) {
+                s.setFullName(newdata.getFullName());
                 s.setAge(newdata.getAge());
                 s.setGender(newdata.getGender());
-                s.setDepartment(newdata.getDeparment());
+                s.setDepartment(newdata.getDepartment());
                 s.setGpa(newdata.getGpa());
 
                 JOptionPane.showMessageDialog(null, "STUDENT UPDATED SUCCESSFULLY!");
@@ -73,8 +73,8 @@ public class StudentManager {
 
     public boolean deleteStudent(int id) {
         for (int i = 0; i < students.size(); i++) {
-            Student s = students.get(i);
-            if (s.getId() == id) {
+            Students s = students.get(i);
+            if (s.getID()== id) {
                 students.remove(s);
                 JOptionPane.showMessageDialog(null, "STUDENT DELETED SUCCESSFULLY!");
                 return true;
