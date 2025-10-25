@@ -91,7 +91,9 @@ public class Students extends Person {
             this.gpa=gpa;
         }
     }
-     
+    public String lineRepresentation() {
+        return this.getID()+","+this.getFullName()+","+this.getAge()+","+this.getGender()+","+this.getDepartment()+","+this.getGpa();
+    }
     public int getID() {
         return id;
     }
