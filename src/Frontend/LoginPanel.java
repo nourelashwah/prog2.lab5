@@ -5,6 +5,7 @@ package Frontend;
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -233,6 +234,23 @@ passwordError.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 20));
     submitbtn.setBackground(Color.GRAY);
     submitbtn.setForeground(Color.BLACK);
     submitbtn.setEnabled(false);
+    
+    submitbtn.addActionListener(l ->{
+    if(correctpassword && correctuser){
+       javax.swing.JOptionPane.showMessageDialog(this, "SUCCESSFUL LOGIN");
+        java.awt.Window window = javax.swing.SwingUtilities.getWindowAncestor(this);
+        window.dispose();
+        new MainFrame().setVisible(true);
+        
+    }
+    else{
+     javax.swing.JOptionPane.showMessageDialog(this, "iNVALID USERNAME OR PASSWORD");
+    }
+        
+        
+    
+    });
+    
 
     javax.swing.GroupLayout inputs_errorsLayout = new javax.swing.GroupLayout(inputs_errors);
     inputs_errors.setLayout(inputs_errorsLayout);
@@ -324,5 +342,7 @@ inputs_errors.setAlignmentX(CENTER_ALIGNMENT);
     private javax.swing.JLabel usernameError;
     private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameLabel;
+
+  
    
 }
