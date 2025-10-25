@@ -4,8 +4,8 @@
  */
 package Frontend;
 
+import Backend.StudentManager;
 import Backend.Students;
-import Controller.StudentManager;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -94,25 +94,25 @@ public class SearchUpdatePanel extends JPanel {
 
     private void SearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchBtnActionPerformed
         // TODO add your handling code here:
-        String key=SearchField.getText();
+        String key=SearchField.getText().trim();
         if(key.equals(""))
             JOptionPane.showMessageDialog(SearchPanel, "Enter student name or ID");
         else if(manager.searchStudent(key)==null)
             JOptionPane.showMessageDialog(SearchPanel,"Student not found");
         else{
-            Students found=(Students) manager.searchStudent(key);
+            Students found=manager.searchStudent(key);
             JOptionPane.showMessageDialog(SearchPanel, "Student found: "+found.getFullName()+"\nID: "+found.getID()+"\nAge: "+found.getAge()+"\nGender: "+found.getGender()+"\nDepartment: "+found.getDepartment()+"\nCurrent GPA: "+found.getGpa());
         }
         
     }//GEN-LAST:event_SearchBtnActionPerformed
-//    public static void main(String[] args) {
-//        SearchUpdatePanel panel=new SearchUpdatePanel();
-//        JFrame frame=new JFrame("Student Search");
-//        frame.setVisible(true);
-//        frame.setSize(new Dimension(426,122));
-//        frame.setLocationRelativeTo(null);
-//        frame.setContentPane(panel);
-//    }
+    public static void main(String[] args) {
+        SearchUpdatePanel panel=new SearchUpdatePanel();
+        JFrame frame=new JFrame("Student Search");
+        frame.setVisible(true);
+        frame.setSize(new Dimension(426,122));
+        frame.setLocationRelativeTo(null);
+        frame.setContentPane(panel);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SearchBtn;
