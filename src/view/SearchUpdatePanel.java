@@ -5,6 +5,7 @@
 package view;
 
 import Controller.StudentManager;
+import Model.Students;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -96,8 +97,13 @@ public class SearchUpdatePanel extends JPanel {
         String key=SearchField.getText();
         if(key.equals(""))
             JOptionPane.showMessageDialog(SearchPanel, "Enter student number or ID");
-        else
-        manager.searchStudent(key);
+        else if(manager.searchStudent(key)==null)
+            JOptionPane.showMessageDialog(SearchPanel,"Student not found");
+        else{
+            Students found=manager.searchStudent(key);
+            JOptionPane.showMessageDialog(SearchPanel, "Student found: "+found.getFullName()+"\nID: "+found.getID()+"\nAge: "+found.getAge()+"\nGender: "+found.getGender()+"\nDepartment: "+found.getDepartment()+"\nCurrent GPA: "+found.getGpa());
+        }
+        
     }//GEN-LAST:event_SearchBtnActionPerformed
     public static void main(String[] args) {
         SearchUpdatePanel panel=new SearchUpdatePanel();
