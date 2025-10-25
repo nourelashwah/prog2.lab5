@@ -2,11 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controller;
+package Backend;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author LapTop
@@ -38,7 +37,7 @@ public class StudentManager {
 
     }
 
-    public ArrayList<student> getAllStudents() {
+    public ArrayList<Student> getAllStudents() {
         return students;
     }
 
