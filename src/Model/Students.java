@@ -27,7 +27,7 @@ public class Students extends Person {
         
     }
     
-    
+    //
     private int generateID()
     {
         Random autom = new Random(); //method gowa java bt-generate random integers w hahot el limit
