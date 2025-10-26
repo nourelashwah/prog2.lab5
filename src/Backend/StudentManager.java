@@ -22,15 +22,16 @@ public class StudentManager {
     public StudentManager() {
         students = new ArrayList<>();
         manager=new FileManager("Students.txt", students);
+        
     }
 
     public void addStudent(Students s) {
-
-        if (s.getFullName() == null || s.getFullName().isEmpty()) {
+ 
+        
 
         if ( s.getFullName().isEmpty()) {
             JOptionPane.showMessageDialog(null, "NAME CAN'T BE EMPTY!");//to write in the gui
-
+        }
         if (s.getFullName() == null || s.getFullName().isEmpty()) {
             JOptionPane.showMessageDialog(null, "NAME CAN'T BE EMOTY!");//to write in the gui
 
@@ -48,8 +49,8 @@ public class StudentManager {
         JOptionPane.showMessageDialog(null, "STUDENT ADDED SUCCESSFULLY!");
         manager.saveToFile();
 
-    }
-    }
+   
+   
     }
     public ArrayList<Students> getAllStudents() {
         return students;
