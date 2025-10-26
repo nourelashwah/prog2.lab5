@@ -100,7 +100,7 @@ public class Students extends Person {
         {this.department = department;
          }
         else{
-             JOptionPane.showMessageDialog(null,"Error in sotring the department","Error",JOptionPane.ERROR_MESSAGE);
+             JOptionPane.showMessageDialog(null,"Error in storing the department","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
     
