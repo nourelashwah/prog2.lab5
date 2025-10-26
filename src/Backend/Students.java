@@ -1,10 +1,15 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
 package Backend;
 
+
 import java.util.Random;
+import Backend.Person;
+
 
 import javax.swing.JOptionPane;
 
@@ -126,7 +131,9 @@ public class Students extends Person {
         }
         
     }
-     
+    public String lineRepresentation() {
+        return this.getID()+","+this.getFullName()+","+this.getAge()+","+this.getGender()+","+this.getDepartment()+","+this.getGpa();
+    }
     public int getID() {
         return id;
     }
