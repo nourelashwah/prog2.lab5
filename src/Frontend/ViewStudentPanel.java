@@ -24,6 +24,12 @@ public class ViewStudentPanel extends javax.swing.JFrame {
         initComponents();
         loadStudentTable();
         UpdateBtn.setEnabled(false);
+        studentTable.getSelectionModel().addListSelectionListener(event->{
+            if(studentTable.getSelectedRow()!=-1)
+                UpdateBtn.setEnabled(true);
+            else
+                UpdateBtn.setEnabled(false);
+        });
     }
 
     /**

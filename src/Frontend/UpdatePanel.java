@@ -76,6 +76,11 @@ public class UpdatePanel extends JPanel {
         GpaField.setText("jTextField1");
 
         SaveBtn.setText("Save");
+        SaveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout UpdatePanelLayout = new javax.swing.GroupLayout(UpdatePanel);
         UpdatePanel.setLayout(UpdatePanelLayout);
@@ -152,6 +157,18 @@ public class UpdatePanel extends JPanel {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
+        // TODO add your handling code here:
+        int id=Integer.parseInt(IdField.getText());
+        String name=NameField.getText();
+        int age=Integer.parseInt(AgeField.getText());
+        String gender=GenderField.getText();
+        String department=DepartmentField.getText();
+        float gpa=Float.parseFloat(GpaField.getText());
+        Students updated=new Students(id,name,age,gender,department,gpa);
+        manager.updateStudent(id, updated);
+    }//GEN-LAST:event_SaveBtnActionPerformed
     public void loadData(Students stu){//loads selected data into form text fields 
         IdField.setText(String.valueOf(stu.getID()));
         NameField.setText(stu.getFullName());
