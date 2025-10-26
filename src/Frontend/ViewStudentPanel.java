@@ -1,9 +1,13 @@
+<<<<<<< HEAD
+package view;
+=======
 package Frontend;
 
 import Backend.StudentManager;
 import Backend.Students;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,8 +19,11 @@ import javax.swing.table.DefaultTableModel;
  * @author LapTop
  */
 public class ViewStudentPanel extends javax.swing.JFrame {
+<<<<<<< HEAD
+=======
 
     private StudentManager manager = new StudentManager();
+>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewStudentPanel.class.getName());
 
@@ -25,7 +32,10 @@ public class ViewStudentPanel extends javax.swing.JFrame {
      */
     public ViewStudentPanel() {
         initComponents();
+<<<<<<< HEAD
+=======
         loadStudentTable();
+>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
     }
 
     /**
@@ -37,6 +47,8 @@ public class ViewStudentPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
+=======
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         viewStudent = new javax.swing.JLabel();
@@ -178,6 +190,7 @@ public class ViewStudentPanel extends javax.swing.JFrame {
 
     private void initComponents() {//GEN-BEGIN:initComponents
 
+>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,7 +205,11 @@ public class ViewStudentPanel extends javax.swing.JFrame {
         );
 
         pack();
+<<<<<<< HEAD
+    }// </editor-fold>//GEN-END:initComponents
+=======
     }//GEN-END:initComponents
+>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
 
     /**
      * @param args the command line arguments

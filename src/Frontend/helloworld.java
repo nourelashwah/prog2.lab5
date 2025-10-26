@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+package view;
+=======
 package Frontend;
+>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
 
 
 import java.util.Scanner;
