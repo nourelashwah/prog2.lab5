@@ -6,9 +6,6 @@ package Frontend;
 
 import Backend.StudentManager;
 import Backend.Students;
-import java.awt.Dimension;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -16,12 +13,13 @@ import javax.swing.JPanel;
  * @author malak
  */
 public class UpdatePanel extends JPanel {
-    private StudentManager manager;
+    private final StudentManager manager;
     /**
      * Creates new form SearchPanel
+     * @param manager
      */
-    public UpdatePanel() {
-        manager= new StudentManager();
+    public UpdatePanel(StudentManager manager) {
+        this.manager=manager;
         initComponents();
     }
 
@@ -177,14 +175,6 @@ public class UpdatePanel extends JPanel {
         DepartmentField.setText(stu.getDepartment());
         GpaField.setText(String.valueOf(stu.getGpa()));
         
-    }
-    public static void main(String[] args) {
-        UpdatePanel panel=new UpdatePanel();
-        JFrame frame=new JFrame("Student Search");
-        frame.setVisible(true);
-        frame.setSize(new Dimension(450,275));
-        frame.setLocationRelativeTo(null);
-        frame.setContentPane(panel);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

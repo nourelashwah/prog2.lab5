@@ -6,6 +6,8 @@
 package Backend;
 
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DELL
@@ -26,13 +28,13 @@ public abstract class Person {
         
     }
     
-    private boolean validName ( String fullName )
+    public static boolean validName ( String fullName )
     {
         fullName = fullName.trim();
         
-        if (fullName.length() < 1 || fullName.length() > 150 )
+        if (fullName.length() < 2 || fullName.length() > 150 )
         {
-            System.out.println("Too short or too long full name, error!!");
+            JOptionPane.showMessageDialog(null,"Too short name, or too long!","Error",JOptionPane.ERROR_MESSAGE);
             return false;
         }  //lw el name osyr awe hrfyn harf, aw tawel over, yeb2a ignore. 
         
@@ -42,8 +44,13 @@ public abstract class Person {
         for (int i = 0 ; i < line.length; i++)
         {
             if ( !line[i].matches(regex) || line[i].isEmpty())
-                return false;
+            {
+                JOptionPane.showMessageDialog(null,"Invalid part of name, make sure only letters!","Error",JOptionPane.ERROR_MESSAGE);
+                 return false;
+            }
+               
         }
+       
         return true;
     }
     
@@ -54,17 +61,22 @@ public abstract class Person {
         {
             this.fullName = fullName;
         }
-        System.out.println("!!Error in validation of Name, incorrect format or empty. ");
+        
     }
     
     
-    private boolean validAge ( int age )
+    public static boolean validAge ( int age )
     {
         if (age < 1 || age > 90)
         {
+            JOptionPane.showMessageDialog(null,"Error Iinvalid range of age!","Error",JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        return true;
+        else{
+          
+              return true;
+        }
+      
     }
     public void setAge(int age) {
         
@@ -73,16 +85,17 @@ public abstract class Person {
             this.age = age;
             
         }
-        else {
-            System.out.println("Invalid limit of age.");
-        }
-        
     }
 
     public void setGender(String gender) {
         
         if (!gender.isEmpty())
-        this.gender = gender;
+        {this.gender = gender;
+         
+        }
+        else{
+             JOptionPane.showMessageDialog(null,"Error gender entering error..","Error",JOptionPane.ERROR_MESSAGE);
+        }
     }
 
 

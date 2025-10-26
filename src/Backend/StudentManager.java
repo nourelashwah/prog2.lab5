@@ -5,7 +5,6 @@
 
 package Backend;
 
-import Backend.Students;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -26,6 +25,8 @@ public class StudentManager {
     }
 
     public void addStudent(Students s) {
+
+        if (s.getFullName() == null || s.getFullName().isEmpty()) {
 
         if ( s.getFullName().isEmpty()) {
             JOptionPane.showMessageDialog(null, "NAME CAN'T BE EMPTY!");//to write in the gui
@@ -49,6 +50,7 @@ public class StudentManager {
 
     }
     }
+    }
     public ArrayList<Students> getAllStudents() {
         return students;
     }
@@ -56,6 +58,8 @@ public class StudentManager {
     public Students searchStudent(String keyword) {
         for (int i = 0; i < students.size(); i++) {
             Students s = students.get(i);
+
+            if (String.valueOf((char) s.getID()).equals(keyword) || s.getFullName().equalsIgnoreCase(keyword)) {
 
             if (String.valueOf(s.getID()).equals(keyword) || s.getFullName().equalsIgnoreCase(keyword)) {
 
@@ -65,12 +69,20 @@ public class StudentManager {
             }
         }
     }
+    }
         return null;
     }
     public boolean updateStudent(int id, Students newdata) {
 
         for (int i = 0; i < students.size(); i++) {
             Students s = students.get(i);
+
+            if (s.getID() == id) {
+                s.setFullName(newdata.getFullName());
+                s.setAge(newdata.getAge());
+                s.setGender(newdata.getGender());
+                s.setDepartment(newdata.getDepartment());
+                s.setGpa(newdata.getGpa());
 
             if (s.getID()== id) {
                 s  = newdata;
@@ -88,6 +100,7 @@ public class StudentManager {
                 return true;
             }
         }
+    }
     }
         JOptionPane.showMessageDialog(null, "STUDENT NOT FOUND!");
         return false;
