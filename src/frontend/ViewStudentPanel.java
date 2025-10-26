@@ -1,19 +1,21 @@
 package frontend;
+
 import backend.StudentManager;
 import backend.Students;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author LapTop
  */
 public class ViewStudentPanel extends javax.swing.JFrame {
-    private StudentManager manager=new StudentManager();
+
+    private StudentManager manager = new StudentManager();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewStudentPanel.class.getName());
 
     /**
@@ -40,7 +42,6 @@ public class ViewStudentPanel extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         studentTable = new javax.swing.JTable();
         search = new javax.swing.JButton();
-        back = new javax.swing.JButton();
         searchTxtField = new javax.swing.JTextField();
         searchtxt = new javax.swing.JLabel();
 
@@ -65,11 +66,16 @@ public class ViewStudentPanel extends javax.swing.JFrame {
         viewStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         viewStudent.setText("view student");
         viewStudent.setToolTipText("view student");
-        getContentPane().add(viewStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 399, 50));
+        getContentPane().add(viewStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 399, 50));
 
         refresh.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         refresh.setText("refresh");
-        getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 73, -1));
+        refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshActionPerformed(evt);
+            }
+        });
+        getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 73, -1));
         refresh.getAccessibleContext().setAccessibleDescription("");
 
         studentTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -88,10 +94,12 @@ public class ViewStudentPanel extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 570, 213));
 
         search.setText("search");
+        search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchActionPerformed(evt);
+            }
+        });
         getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 70, 30));
-
-        back.setText("back");
-        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         searchTxtField.setText("search here");
         searchTxtField.addActionListener(new java.awt.event.ActionListener() {
@@ -113,33 +121,32 @@ public class ViewStudentPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchTxtFieldActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new ViewStudentPanel().setVisible(true));
-    }
+        loadStudentTable();
+    }//GEN-LAST:event_refreshActionPerformed
+
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+        String keyword = searchTxtField.getText();
+        Students s = manager.searchStudent(keyword);
+        DefaultTableModel model = (DefaultTableModel) studentTable.getModel();
+        model.setRowCount(0);
+        if (s != null) {
+            model.addRow(new Object[]{
+                s.getID(),
+                s.getFullName(),
+                s.getAge(),
+                s.getGender(),
+                s.getDepartment(),
+                s.getGpa()
+            });
+        }else {
+            JOptionPane.showMessageDialog(this, "Student not found!");
+        }
+    }//GEN-LAST:event_searchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton back;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
@@ -151,31 +158,20 @@ public class ViewStudentPanel extends javax.swing.JFrame {
     private javax.swing.JLabel viewStudent;
     // End of variables declaration//GEN-END:variables
 
-   private void loadStudentTable()
-    {
-        DefaultTableModel model=(DefaultTableModel) studentTable.getModel();
+    private void loadStudentTable() {
+        DefaultTableModel model = (DefaultTableModel) studentTable.getModel();
         model.setRowCount(0);//to make sure table is empty men old data
-        for(int i=0;i<manager.getAllStudents().size();i++)
-        {
-            Students s= manager.getAllStudents().get(i);
+        for (int i = 0; i < manager.getAllStudents().size(); i++) {
+            Students s = manager.getAllStudents().get(i);
             model.addRow(new Object[]{
-           s.getID(),
-            s.getFullName(),
-            s.getAge(),
-            s.getGender(),
-            s.getDepartment(),
-            s.getGpa()
-                });
+                s.getID(),
+                s.getFullName(),
+                s.getAge(),
+                s.getGender(),
+                s.getDepartment(),
+                s.getGpa()
+            });
         }
     }
-   private void refreshActionPreformed(java.awt.event.ActionEvent evt)
-   {
-   loadStudentTable();
-   }
-   
-   
+
 }
-    
-         
-
-
