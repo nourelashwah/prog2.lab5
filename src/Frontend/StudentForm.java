@@ -2,10 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+<<<<<<< HEAD
 package view;
 
 import Model.Person;
 import Controller.StudentManager;
+=======
+package Frontend;
+
+<<<<<<<< HEAD:src/view/StudentForm.java
+import Model.Person;
+import Controller.StudentManager;
+========
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import Backend.StudentManager;
+>>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a:src/Frontend/StudentForm.java
+>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
 import Model.Students;
 import javax.swing.JOptionPane;
 
@@ -19,10 +32,17 @@ public class StudentForm extends javax.swing.JFrame {
     /**
      * Creates new form StudentForm
      */
+<<<<<<< HEAD
     StudentManager manager = new StudentManager();
     
     public StudentForm() {
        
+=======
+    StudentManager manager;
+    
+    public StudentForm(StudentManager manager) {
+        this.manager = manager;
+>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
         initComponents();
     }
 
@@ -54,12 +74,26 @@ public class StudentForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:src/view/StudentForm.java
+>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleLabel.setFont(new java.awt.Font("Imprint MT Shadow", 3, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Add Student Form");
         titleLabel.setToolTipText("");
+<<<<<<< HEAD
+=======
+========
+   
+        jLabel1.setFont(new java.awt.Font("Imprint MT Shadow", 3, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Add Student Form");
+        jLabel1.setToolTipText("");
+>>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a:src/Frontend/StudentForm.java
+>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
 
         fullnameLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         fullnameLabel.setText("Full Name:");
@@ -279,6 +313,7 @@ public class StudentForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+<<<<<<< HEAD
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -310,6 +345,9 @@ public class StudentForm extends javax.swing.JFrame {
             }
         });
     }
+=======
+   
+>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddStudent;
