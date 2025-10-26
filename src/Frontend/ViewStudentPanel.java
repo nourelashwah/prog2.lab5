@@ -23,6 +23,7 @@ public class ViewStudentPanel extends javax.swing.JFrame {
     public ViewStudentPanel() {
         initComponents();
         loadStudentTable();
+        UpdateBtn.setEnabled(false);
     }
 
     /**
@@ -44,6 +45,7 @@ public class ViewStudentPanel extends javax.swing.JFrame {
         back = new javax.swing.JButton();
         searchTxtField = new javax.swing.JTextField();
         searchtxt = new javax.swing.JLabel();
+        UpdateBtn = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,6 +114,15 @@ public class ViewStudentPanel extends javax.swing.JFrame {
         getContentPane().add(searchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 30));
         searchtxt.getAccessibleContext().setAccessibleDescription("");
 
+        UpdateBtn.setLabel("Update");
+        UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, -1, -1));
+        UpdateBtn.getAccessibleContext().setAccessibleName("UpdateBtn");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -142,6 +153,11 @@ public class ViewStudentPanel extends javax.swing.JFrame {
         
     }//GEN-LAST:event_searchActionPerformed
 
+    private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_UpdateBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -168,6 +184,7 @@ public class ViewStudentPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton UpdateBtn;
     private javax.swing.JButton back;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
