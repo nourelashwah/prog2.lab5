@@ -1,7 +1,7 @@
-package frontend;
+package Frontend;
 
-import backend.StudentManager;
-import backend.Students;
+import Backend.StudentManager;
+import Backend.Students;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 

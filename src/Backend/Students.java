@@ -1,4 +1,4 @@
-package backend;
+package Backend;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -6,7 +6,7 @@ package backend;
  */
 
 
-import backend.Person;
+import Backend.Person;
 import java.util.Random;
 
 /**
