@@ -7,7 +7,7 @@ package Frontend;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import Backend.StudentManager;
-import Model.Students;
+import Backend.Students;
 import javax.swing.JOptionPane;
 
 
