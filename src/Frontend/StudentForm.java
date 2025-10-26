@@ -57,32 +57,18 @@ public class StudentForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:src/view/StudentForm.java
->>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleLabel.setFont(new java.awt.Font("Imprint MT Shadow", 3, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Add Student Form");
         titleLabel.setToolTipText("");
-<<<<<<< HEAD
-=======
-========
-=======
->>>>>>> 75cbf273c43eddd96bc922088b4d471fa4711658
    
         jLabel1.setFont(new java.awt.Font("Imprint MT Shadow", 3, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add Student Form");
         jLabel1.setToolTipText("");
-<<<<<<< HEAD
->>>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a:src/Frontend/StudentForm.java
->>>>>>> f39d8ce43f8fe8436870af8bf431f544f3a2c17a
-=======
->>>>>>> 75cbf273c43eddd96bc922088b4d471fa4711658
+
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel2.setText("Full Name:");
