@@ -152,7 +152,7 @@ public class UpdatePanel extends JPanel {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    public void loadData(Students stu){
+    public void loadData(Students stu){//loads selected data into form text fields 
         IdField.setText(String.valueOf(stu.getID()));
         NameField.setText(stu.getFullName());
         AgeField.setText(String.valueOf(stu.getAge()));
