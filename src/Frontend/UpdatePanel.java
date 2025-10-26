@@ -41,12 +41,12 @@ public class UpdatePanel extends JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        IdField = new javax.swing.JTextField();
+        NameField = new javax.swing.JTextField();
+        AgeField = new javax.swing.JTextField();
+        GenderField = new javax.swing.JTextField();
+        DepartmentField = new javax.swing.JTextField();
+        GpaField = new javax.swing.JTextField();
         SaveBtn = new javax.swing.JButton();
 
         setName("SearchUpdatePanel"); // NOI18N
@@ -63,17 +63,17 @@ public class UpdatePanel extends JPanel {
 
         jLabel6.setText("GPA:");
 
-        jTextField1.setText("jTextField1");
+        IdField.setText("jTextField1");
 
-        jTextField2.setText("jTextField1");
+        NameField.setText("jTextField1");
 
-        jTextField3.setText("jTextField1");
+        AgeField.setText("jTextField1");
 
-        jTextField4.setText("jTextField1");
+        GenderField.setText("jTextField1");
 
-        jTextField5.setText("jTextField1");
+        DepartmentField.setText("jTextField1");
 
-        jTextField6.setText("jTextField1");
+        GpaField.setText("jTextField1");
 
         SaveBtn.setText("Save");
 
@@ -92,12 +92,12 @@ public class UpdatePanel extends JPanel {
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(UpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField5)
-                    .addComponent(jTextField6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3))
+                    .addComponent(GenderField)
+                    .addComponent(DepartmentField)
+                    .addComponent(GpaField)
+                    .addComponent(IdField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NameField)
+                    .addComponent(AgeField))
                 .addGap(111, 111, 111))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UpdatePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -110,27 +110,27 @@ public class UpdatePanel extends JPanel {
                 .addGap(28, 28, 28)
                 .addGroup(UpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(studentId)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(UpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(UpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AgeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(UpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(GenderField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(UpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DepartmentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(UpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(GpaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SaveBtn)
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -152,16 +152,31 @@ public class UpdatePanel extends JPanel {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+    public void loadData(Students stu){
+        IdField.setText(String.valueOf(stu.getID()));
+        NameField.setText(stu.getFullName());
+        AgeField.setText(String.valueOf(stu.getAge()));
+        GenderField.setText(stu.getGender());
+        DepartmentField.setText(stu.getDepartment());
+        GpaField.setText(String.valueOf(stu.getGpa()));
+        
+    }
     public static void main(String[] args) {
         UpdatePanel panel=new UpdatePanel();
         JFrame frame=new JFrame("Student Search");
         frame.setVisible(true);
-        frame.setSize(new Dimension(426,122));
+        frame.setSize(new Dimension(450,275));
         frame.setLocationRelativeTo(null);
         frame.setContentPane(panel);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AgeField;
+    private javax.swing.JTextField DepartmentField;
+    private javax.swing.JTextField GenderField;
+    private javax.swing.JTextField GpaField;
+    private javax.swing.JTextField IdField;
+    private javax.swing.JTextField NameField;
     private javax.swing.JButton SaveBtn;
     private javax.swing.JPanel UpdatePanel;
     private javax.swing.JLabel jLabel2;
@@ -169,12 +184,6 @@ public class UpdatePanel extends JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel studentId;
     // End of variables declaration//GEN-END:variables
 }
