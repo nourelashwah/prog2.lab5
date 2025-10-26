@@ -1,6 +1,6 @@
-package frontend;
-import backend.StudentManager;
-import backend.Students;
+package Frontend;
+import Backend.StudentManager;
+import Backend.Students;
 import javax.swing.table.DefaultTableModel;
 
 /*

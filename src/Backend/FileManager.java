@@ -4,6 +4,7 @@
  */
 package Backend;
 
+import Backend.Students;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -29,7 +30,7 @@ public class FileManager {
         try(PrintWriter pw=new PrintWriter(new FileWriter(filename))){
             for(int i=0;i<students.size();i++){
                 Students stu=students.get(i);
-                pw.println(stu.toString());
+                pw.println(stu.lineRepresentation());
             }
             JOptionPane.showMessageDialog(null, "FILE SAVED SUCCESSFULLY!");
         }catch(IOException e){

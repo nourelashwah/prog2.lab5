@@ -2,11 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-<<<<<<< HEAD:src/Backend/Person.java
+
 package Backend;
-=======
-package backend;
->>>>>>> origin/viewStudentGUI:src/backend/Person.java
+
 
 /**
  *
