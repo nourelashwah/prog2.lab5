@@ -1,9 +1,16 @@
+package backend;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+<<<<<<< HEAD:src/Backend/Students.java
 package Backend;
+=======
+>>>>>>> origin/viewStudentGUI:src/backend/Students.java
 
+
+import backend.Person;
 import java.util.Random;
 
 /**
