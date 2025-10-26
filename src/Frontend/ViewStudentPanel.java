@@ -1,6 +1,7 @@
 package Frontend;
 import Backend.StudentManager;
 import Backend.Students;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -88,6 +89,11 @@ public class ViewStudentPanel extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 570, 213));
 
         search.setText("search");
+        search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchActionPerformed(evt);
+            }
+        });
         getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 70, 30));
 
         back.setText("back");
@@ -102,7 +108,7 @@ public class ViewStudentPanel extends javax.swing.JFrame {
         getContentPane().add(searchTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 130, 30));
 
         searchtxt.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        searchtxt.setText("search by name or id:");
+        searchtxt.setText("Search by name or ID:");
         getContentPane().add(searchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 30));
         searchtxt.getAccessibleContext().setAccessibleDescription("");
 
@@ -112,6 +118,29 @@ public class ViewStudentPanel extends javax.swing.JFrame {
     private void searchTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchTxtFieldActionPerformed
+
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+        // TODO add your handling code here:
+        String key=searchTxtField.getText().trim();
+        if(key.equals(""))
+            JOptionPane.showMessageDialog(null, "Enter student name or ID","Error",JOptionPane.ERROR_MESSAGE);
+        else if(manager.searchStudent(key)==null)
+            JOptionPane.showMessageDialog(null,"Student not found","Error",JOptionPane.ERROR_MESSAGE);
+        else{//momkn hna n3ml helper method walla 7aga ll display b sefa 3amma 34an el repitition
+            Students found=manager.searchStudent(key);
+            DefaultTableModel model=(DefaultTableModel) studentTable.getModel();
+            model.setRowCount(0);
+            model.addRow(new Object[]{
+                found.getID(),
+                found.getFullName(),
+                found.getAge(),
+                found.getGender(),
+                found.getDepartment(),
+                found.getGpa()
+            });
+        }   
+        
+    }//GEN-LAST:event_searchActionPerformed
 
     /**
      * @param args the command line arguments
