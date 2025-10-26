@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import model.Student;
+import Backend.Student;
 
 /**
  *
@@ -50,4 +50,5 @@ public class FileManager {
         }catch(IOException e){
             JOptionPane.showMessageDialog(null, "ERROR LOADING FILE: "+e.getMessage());
     }
+}
 }
