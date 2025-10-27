@@ -69,17 +69,24 @@ public class StudentManager {
     }
     public boolean updateStudent(int id, Students newdata) {
 
-      Students s  = searchStudent(Integer.toString(id));
-if(s  !=null){
-   s = newdata;
+     Students s = searchStudent(Integer.toString(id));
+     if(s  == null){
+     JOptionPane.showMessageDialog(null, "DOESNT EXIST");
+     return false;
+     }
+int index = students.indexOf(s);
+students.set(index, newdata);
                 JOptionPane.showMessageDialog(null, "STUDENT UPDATED SUCCESSFULLY!");
                 manager.saveToFile();
                 return true;
+        
+        
+    
+  
        
     }
-        JOptionPane.showMessageDialog(null, "STUDENT NOT FOUND!");
-        return false;
-    }
+    
+    
     public boolean deleteStudent(int id) {
         for (int i = 0; i < students.size(); i++) {
             Students s = students.get(i);
