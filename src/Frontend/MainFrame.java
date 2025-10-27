@@ -21,7 +21,7 @@ private StudentManager manager = new StudentManager();
         welcomeL = new javax.swing.JLabel();
         addS = new roundedbtn("ADD STUDENT", 15, 15);
         viewS = new roundedbtn("VIEW STUDENTS", 15, 15);
-        searchupdateS = new roundedbtn("SEARCH AND UPDATE STUDENTS", 15, 15);
+        searchupdateS = new roundedbtn("UPDATE STUDENTS", 15, 15);
         deleteS = new roundedbtn("DELETE STUDENTS", 15, 15);
         addP = new javax.swing.JPanel();
         viewP = new javax.swing.JPanel();
@@ -104,45 +104,45 @@ deleteS.addActionListener(e -> mainP.setSelectedIndex(4));
 
         mainP.addTab("welcome", WelcomeP);
 
-        javax.swing.GroupLayout addPLayout = new javax.swing.GroupLayout(addP);
-        addP.setLayout(addPLayout);
-        addPLayout.setHorizontalGroup(
-            addPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
-        );
-        addPLayout.setVerticalGroup(
-            addPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
-        );
+//        javax.swing.GroupLayout addPLayout = new javax.swing.GroupLayout(addP);
+//        addP.setLayout(addPLayout);
+//        addPLayout.setHorizontalGroup(
+//            addPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGap(0, 540, Short.MAX_VALUE)
+//        );
+//        addPLayout.setVerticalGroup(
+//            addPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGap(0, 295, Short.MAX_VALUE)
+//        );
 //TODOOO : REPLACE ALL dummy panels with real ppanels 
-        mainP.addTab("ADD STUDENTS", addP);
+        mainP.addTab("ADD STUDENTS", new StudentPanel(manager));
 
-        javax.swing.GroupLayout viewPLayout = new javax.swing.GroupLayout(viewP);
-        //// add veiw panel
-        viewP.setLayout(viewPLayout);
-        viewPLayout.setHorizontalGroup(
-            viewPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
-        );
-        viewPLayout.setVerticalGroup(
-            viewPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
-        );
+//        javax.swing.GroupLayout viewPLayout = new javax.swing.GroupLayout(viewP);
+//        //// add veiw panel
+//        viewP.setLayout(viewPLayout);
+//        viewPLayout.setHorizontalGroup(
+//            viewPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGap(0, 540, Short.MAX_VALUE)
+//        );
+//        viewPLayout.setVerticalGroup(
+//            viewPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGap(0, 295, Short.MAX_VALUE)
+//        );
 
-        mainP.addTab("VIEW STUDENTS", viewP);
+        mainP.addTab("VIEW STUDENTS", new ViewStudentPanel(manager));
 
-        javax.swing.GroupLayout searchPLayout = new javax.swing.GroupLayout(searchP);
-        searchP.setLayout(searchPLayout);
-        searchPLayout.setHorizontalGroup(
-            searchPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
-        );
-        searchPLayout.setVerticalGroup(
-            searchPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
-        );
+//        javax.swing.GroupLayout searchPLayout = new javax.swing.GroupLayout(searchP);
+//        searchP.setLayout(searchPLayout);
+//        searchPLayout.setHorizontalGroup(
+//            searchPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGap(0, 540, Short.MAX_VALUE)
+//        );
+//        searchPLayout.setVerticalGroup(
+//            searchPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGap(0, 295, Short.MAX_VALUE)
+//        );
 
-        mainP.addTab("SEARCH  STUDENTS", searchP);
+        mainP.addTab("UPDATE  STUDENTS", new UpdatePanel(manager));
 
         mainP.addTab("DELETE STUDENT", new DeletePanel(manager));
 
@@ -182,7 +182,8 @@ deleteS.addActionListener(e -> mainP.setSelectedIndex(4));
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         
-        java.awt.EventQueue.invokeLater(() -> new loginFrame().setVisible(true));
+//        java.awt.EventQueue.invokeLater(() -> new loginFrame().setVisible(true));
+   java.awt.EventQueue.invokeLater(() -> new MainFrame().setVisible(true));
     }
 
     private javax.swing.JButton addS;

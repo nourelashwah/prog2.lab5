@@ -11,7 +11,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import Backend.Students;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  *
@@ -24,9 +26,12 @@ public class FileManager {
     public FileManager(String filename, ArrayList<Students> students) {
         this.filename = filename;
         this.students = students;
+        loadFile();
     }
     
     public void saveToFile(){
+       
+ 
         try(PrintWriter pw=new PrintWriter(new FileWriter(filename))){
             for(int i=0;i<students.size();i++){
                 Students stu=students.get(i);
@@ -42,6 +47,17 @@ public class FileManager {
         return new Students(Integer.parseInt(split[0]),split[1],Integer.parseInt(split[2]),split[3],split[4],Float.parseFloat(split[5]));
     }
     public void loadFile(){
+         Path p = Paths.get(filename);
+        if(!Files.exists(p)){
+            try{
+            Files.createFile(p);
+            }catch(IOException e){
+              JOptionPane.showMessageDialog(null, "ERROR SAVING FILE: "+e.getMessage());
+            }
+        
+        
+        }
+        
         students.clear();
         try(BufferedReader br=new BufferedReader(new FileReader(filename))){
             String line;

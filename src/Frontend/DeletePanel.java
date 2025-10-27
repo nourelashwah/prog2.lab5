@@ -3,9 +3,7 @@ package Frontend;
 
 import Backend.StudentManager;
 import Backend.Students;
-import java.awt.Image;
 import java.util.List;
-import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -19,6 +17,7 @@ public class DeletePanel extends javax.swing.JPanel {
 
 
     initComponents();
+    SetTable();
 LoadTable(this.manager.getAllStudents());
 
     }
@@ -36,7 +35,7 @@ deleteTable.setRowHeight(28);
         searchid = new javax.swing.JTextField();
         SearchLabel = new javax.swing.JLabel();
         SearchBtn = new CustomdesignClasses.roundedbtn("SEARCH BY ID", 15, 15);
-
+        RefreshBtn = new CustomdesignClasses.roundedbtn("REFRESH", 15, 15);
         Title.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24));
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Title.setText("DELETE STUDENT");
@@ -74,6 +73,17 @@ deleteTable.setRowHeight(28);
                 SearchBtnActionPerformed(evt);
             }
         });
+RefreshBtn.setBackground(new java.awt.Color(138, 3, 77));
+        RefreshBtn.setForeground(new java.awt.Color(0, 0, 0));
+       
+        RefreshBtn.addComponentListener(new java.awt.event.ComponentAdapter() {
+           
+        });
+        RefreshBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.JPanel contentPanel = new javax.swing.JPanel();
         contentPanel.setLayout(new javax.swing.GroupLayout(contentPanel));
@@ -89,7 +99,10 @@ deleteTable.setRowHeight(28);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchid, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                             .addGap(18, 18, 18)
+                     .addComponent(RefreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    )
                     .addComponent(deleteTable, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
                     )
                 )
@@ -103,7 +116,9 @@ deleteTable.setRowHeight(28);
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SearchLabel)
-                    .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RefreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                )
                 .addGap(18, 18, 18)
                 .addComponent(deleteTable, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
@@ -124,22 +139,16 @@ deleteTable.setRowHeight(28);
     }
 
     private void searchidActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    }                                        
-public void LoadTable(List<Students> students){
-
-    DefaultTableModel model = (DefaultTableModel) deleteTable.getModel();
-    model.setRowCount(0);
-    for(Students s : students){
-    Object[] row = {
-    s.getFullName(),
-        s.getID(),
-        s.getGpa(),
-        false};
-    model.addRow(row);
-    
-    model.addTableModelListener(e ->{
+    }
+private final void SetTable(){
+      DefaultTableModel model = (DefaultTableModel) deleteTable.getModel();
+        model.addTableModelListener(e ->{
     if(e.getColumn() == 3 && e.getType() == javax.swing.event.TableModelEvent.UPDATE){
     int r = e.getFirstRow();
+    if(r<0 || r>=model.getRowCount()){
+    return;
+    
+    }
         Boolean checked = (Boolean) model.getValueAt(r, 3);
             if (checked != null && checked) {
                 int id = (int) model.getValueAt(r, 1);
@@ -162,11 +171,29 @@ public void LoadTable(List<Students> students){
             }
         }
     });
+    
+    }
+public final void LoadTable(List<Students> students){
+
+    DefaultTableModel model = (DefaultTableModel) deleteTable.getModel();
+    model.setRowCount(0);
+    for(Students s : students){
+    Object[] row = {
+    s.getFullName(),
+        s.getID(),
+        s.getGpa(),
+        false};
+    model.addRow(row);
+    
+    
 }
     
     
    
 }
+ private void RefreshBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
+      LoadTable(manager.getAllStudents());
+       }
                                           
 
     private void SearchBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -192,7 +219,7 @@ public void LoadTable(List<Students> students){
     private javax.swing.JLabel Title;
     private javax.swing.JLabel SearchLabel;
     private javax.swing.JTable deleteTable;
-   
+    private javax.swing.JButton RefreshBtn;
     private javax.swing.JTextField searchid;
     private javax.swing.JScrollPane scrollMain;
 }
