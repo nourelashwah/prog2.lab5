@@ -142,9 +142,17 @@ public class UpdatePanel extends JPanel {
         // TODO add your handling code here:
         int id=Integer.parseInt(IdField.getText());
         String name=NameField.getText();
+           if (AgeField.getText().matches(".*[a-zA-Z].*")) {
+    JOptionPane.showMessageDialog(null, "AGE CANNOT CONTAIN LETTERS","ERROR" ,JOptionPane.ERROR_MESSAGE );
+    return;
+}
         int age=Integer.parseInt(AgeField.getText());
       String gender = genderField.getSelectedItem().toString();
         String department = departmentField.getSelectedItem().toString();
+        if (GpaField.getText().matches(".*[a-zA-Z].*")) {
+    JOptionPane.showMessageDialog(null, "GPA CANNOT CONTAIN LETTERS","ERROR" ,JOptionPane.ERROR_MESSAGE );
+    return;
+}
         float gpa=Float.parseFloat(GpaField.getText());
         Students updated=new Students(id,name,age,gender,department,gpa);
         manager.updateStudent(id, updated);
