@@ -39,97 +39,97 @@ public class ViewStudentPanel extends javax.swing.JPanel {
     }
 
    
-    @SuppressWarnings("unchecked")
-                           
-    private void initComponents() {
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        viewStudent = new javax.swing.JLabel();
-        refresh = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        studentTable = new javax.swing.JTable();
-        search = new javax.swing.JButton();
-
-      
-        searchTxtField = new javax.swing.JTextField();
-        searchtxt = new javax.swing.JLabel();
-        UpdateBtn = new javax.swing.JButton();
-
-        searchTxtField = new javax.swing.JTextField();
-        searchtxt = new javax.swing.JLabel();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-       
-       setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        viewStudent.setBackground(new java.awt.Color(51, 51, 255));
-        viewStudent.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        viewStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        viewStudent.setText("view student");
-        viewStudent.setToolTipText("view student");
-       add(viewStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 399, 50));
-
-        refresh.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        refresh.setText("refresh");
-        refresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshActionPerformed(evt);
-            }
-        });
-       add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 73, -1));
-        refresh.getAccessibleContext().setAccessibleDescription("");
-
-        studentTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "id", "name", "age", "gender", "department", "gpa"
-            }
-        ));
-        jScrollPane2.setViewportView(studentTable);
-
-       add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 570, 213));
-
-        search.setText("search");
-        search.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchActionPerformed(evt);
-            }
-        });
-       add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 70, 30));
-
-        searchTxtField.setText("search here");
-        searchTxtField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchTxtFieldActionPerformed(evt);
-            }
-        });
-       add(searchTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 130, 30));
-
-        searchtxt.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        searchtxt.setText("search by name or id:");
-       add(searchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 30));
-        searchtxt.getAccessibleContext().setAccessibleDescription("");
-
-
-    }                     
-                                           
+//    @SuppressWarnings("unchecked")
+//                           
+//    private void initComponents() {
+//        jScrollPane1 = new javax.swing.JScrollPane();
+//        jTable1 = new javax.swing.JTable();
+//        viewStudent = new javax.swing.JLabel();
+//        refresh = new javax.swing.JButton();
+//        jScrollPane2 = new javax.swing.JScrollPane();
+//        studentTable = new javax.swing.JTable();
+//        search = new javax.swing.JButton();
+//
+//      
+//        searchTxtField = new javax.swing.JTextField();
+//        searchtxt = new javax.swing.JLabel();
+//        UpdateBtn = new javax.swing.JButton();
+//
+//        searchTxtField = new javax.swing.JTextField();
+//        searchtxt = new javax.swing.JLabel();
+//
+//        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+//            new Object [][] {
+//                {null, null, null, null},
+//                {null, null, null, null},
+//                {null, null, null, null},
+//                {null, null, null, null}
+//            },
+//            new String [] {
+//                "Title 1", "Title 2", "Title 3", "Title 4"
+//            }
+//        ));
+//        jScrollPane1.setViewportView(jTable1);
+//
+//       
+//       setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+//
+//        viewStudent.setBackground(new java.awt.Color(51, 51, 255));
+//        viewStudent.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+//        viewStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+//        viewStudent.setText("view student");
+//        viewStudent.setToolTipText("view student");
+//       add(viewStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 399, 50));
+//
+//        refresh.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+//        refresh.setText("refresh");
+//        refresh.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                refreshActionPerformed(evt);
+//            }
+//        });
+//       add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 73, -1));
+//        refresh.getAccessibleContext().setAccessibleDescription("");
+//
+//        studentTable.setModel(new javax.swing.table.DefaultTableModel(
+//            new Object [][] {
+//                {null, null, null, null, null, null},
+//                {null, null, null, null, null, null},
+//                {null, null, null, null, null, null},
+//                {null, null, null, null, null, null}
+//            },
+//            new String [] {
+//                "id", "name", "age", "gender", "department", "gpa"
+//            }
+//        ));
+//        jScrollPane2.setViewportView(studentTable);
+//
+//       add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 570, 213));
+//
+//        search.setText("search");
+//        search.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                searchActionPerformed(evt);
+//            }
+//        });
+//       add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 70, 30));
+//
+//        searchTxtField.setText("search here");
+//        searchTxtField.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                searchTxtFieldActionPerformed(evt);
+//            }
+//        });
+//       add(searchTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 130, 30));
+//
+//        searchtxt.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+//        searchtxt.setText("search by name or id:");
+//       add(searchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 30));
+//        searchtxt.getAccessibleContext().setAccessibleDescription("");
+//
+//
+//    }                     
+//                                           
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
 
@@ -153,89 +153,88 @@ public class ViewStudentPanel extends javax.swing.JPanel {
 
    
 
-//  
-//    private void initComponents() {
-//
-//        viewStudent = new javax.swing.JLabel();
-//        refresh = new javax.swing.JButton();
-//        jScrollPane2 = new javax.swing.JScrollPane();
-//        studentTable = new javax.swing.JTable();
-//        search = new javax.swing.JButton();
-//        back = new javax.swing.JButton();
-//        searchTxtField = new javax.swing.JTextField();
-//        searchtxt = new javax.swing.JLabel();
-//        UpdateBtn = new javax.swing.JButton();
-//
-//        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-//        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-//
-//        viewStudent.setBackground(new java.awt.Color(51, 51, 255));
-//        viewStudent.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-//        viewStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-//        viewStudent.setText("view student");
-//        viewStudent.setToolTipText("view student");
-//        getContentPane().add(viewStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 399, 50));
-//
-//        refresh.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-//        refresh.setText("refresh");
-//        refresh.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                refreshActionPerformed(evt);
-//            }
-//        });
-//        getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 73, -1));
-//        refresh.getAccessibleContext().setAccessibleDescription("");
-//
-//        studentTable.setModel(new javax.swing.table.DefaultTableModel(
-//            new Object [][] {
-//                {null, null, null, null, null, null},
-//                {null, null, null, null, null, null},
-//                {null, null, null, null, null, null},
-//                {null, null, null, null, null, null}
-//            },
-//            new String [] {
-//                "id", "name", "age", "gender", "department", "gpa"
-//            }
-//        ));
-//        jScrollPane2.setViewportView(studentTable);
-//
-//        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 570, 213));
-//
-//        search.setText("search");
-//        search.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                searchActionPerformed(evt);
-//            }
-//        });
-//        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 70, 30));
-//
-//        back.setText("back");
-//        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
-//
-//        searchTxtField.setText("search here");
-//        searchTxtField.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                searchTxtFieldActionPerformed(evt);
-//            }
-//        });
-//        getContentPane().add(searchTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 130, 30));
-//
-//        searchtxt.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-//        searchtxt.setText("Search by name or ID:");
-//        getContentPane().add(searchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 30));
-//
-//        UpdateBtn.setLabel("Update");
-//        UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                UpdateBtnActionPerformed(evt);
-//            }
-//        });
-//        getContentPane().add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, -1));
-//        UpdateBtn.getAccessibleContext().setAccessibleName("UpdateBtn");
-//
-//        pack();
-//    }
-//
+  
+    private void initComponents() {
+
+        viewStudent = new javax.swing.JLabel();
+        refresh = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        studentTable = new javax.swing.JTable();
+        search = new javax.swing.JButton();
+       
+        searchTxtField = new javax.swing.JTextField();
+        searchtxt = new javax.swing.JLabel();
+        UpdateBtn = new javax.swing.JButton();
+
+       
+     setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        viewStudent.setBackground(new java.awt.Color(51, 51, 255));
+        viewStudent.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        viewStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        viewStudent.setText("view student");
+        viewStudent.setToolTipText("view student");
+       add(viewStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 399, 50));
+
+        refresh.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        refresh.setText("refresh");
+        refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshActionPerformed(evt);
+            }
+        });
+      add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 73, -1));
+        refresh.getAccessibleContext().setAccessibleDescription("");
+
+        studentTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "id", "name", "age", "gender", "department", "gpa"
+            }
+        ));
+        jScrollPane2.setViewportView(studentTable);
+
+       add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 570, 213));
+
+        search.setText("search");
+        search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchActionPerformed(evt);
+            }
+        });
+     add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 70, 30));
+
+       
+
+        searchTxtField.setText("search here");
+        searchTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTxtFieldActionPerformed(evt);
+            }
+        });
+      add(searchTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 130, 30));
+
+        searchtxt.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        searchtxt.setText("Search by name or ID:");
+       add(searchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 30));
+
+        UpdateBtn.setLabel("Update");
+        UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateBtnActionPerformed(evt);
+            }
+        });
+       add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, -1));
+        UpdateBtn.getAccessibleContext().setAccessibleName("UpdateBtn");
+
+       
+    }
+
 
     private void searchTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtFieldActionPerformed
         // TODO add your handling code here:
