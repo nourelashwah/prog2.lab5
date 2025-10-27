@@ -1,3 +1,2 @@
-1,aaa,12,Female,Computer and Communications Engineering,1.1
 1,abdo,19,Male,Electrical Engineering,4.0
 2222,wwww,18,Female,Computer and Communications Engineering,2.0

@@ -6,7 +6,16 @@ import Backend.StudentManager;
 import Backend.Students;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import javax.swing.table.TableCellRenderer;
+import Frontend.CustomdesignClasses.roundedbtn;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.AbstractCellEditor;
+import javax.swing.JTable;
+import javax.swing.table.TableCellEditor;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -27,14 +36,6 @@ public class ViewStudentPanel extends javax.swing.JPanel {
     public ViewStudentPanel(StudentManager manager) {
         this.manager  = manager;
         initComponents();
-        loadStudentTable();
-        UpdateBtn.setEnabled(false);
-        studentTable.getSelectionModel().addListSelectionListener(event->{
-            if(studentTable.getSelectedRow()!=-1)
-                UpdateBtn.setEnabled(true);
-            else
-                UpdateBtn.setEnabled(false);
-        });
         loadStudentTable();
     }
 
@@ -150,7 +151,58 @@ public class ViewStudentPanel extends javax.swing.JPanel {
     private javax.swing.JTable studentTable;
     private javax.swing.JLabel viewStudent;
                 
+class updateBtn extends roundedbtn implements javax.swing.table.TableCellRenderer{
+public updateBtn(){
+    super("UPDATE", 15, 15);
+    setBackground(new Color(9, 45, 189));
+   setPreferredSize(new Dimension(50,10));
+    setForeground(Color.white);
 
+}
+@Override
+public Component getTableCellRendererComponent(javax.swing.JTable table, Object value,boolean isSelected, boolean hasFocus , int row, int column)
+{
+return this;
+}}
+class updateBtnEditor extends  AbstractCellEditor implements TableCellEditor , ActionListener{
+private roundedbtn btn;
+private JTable tb;
+private StudentManager manager;
+private int row; 
+public updateBtnEditor (JTable tb , StudentManager manager){
+this.tb = tb;
+this.manager  = manager;
+btn = new roundedbtn("UPDATE", 15, 15);
+ btn.setBackground(new Color(9, 45, 189));
+    btn.setForeground(Color.white);
+    btn.setPreferredSize(new Dimension(50,10));
+    btn.addActionListener(this);
+
+
+}
+
+        @Override
+        public Object getCellEditorValue() {
+            return null;
+//            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+
+
+        @Override
+        public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
+           
+            this.row = row;
+            return btn;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+              JOptionPane.showMessageDialog(null, "CLICKED ROW "+this.row);
+            //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+ 
+}
    
 
   
@@ -164,9 +216,8 @@ public class ViewStudentPanel extends javax.swing.JPanel {
        
         searchTxtField = new javax.swing.JTextField();
         searchtxt = new javax.swing.JLabel();
-        UpdateBtn = new javax.swing.JButton();
-
-       
+        
+  
      setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         viewStudent.setBackground(new java.awt.Color(51, 51, 255));
@@ -188,19 +239,19 @@ public class ViewStudentPanel extends javax.swing.JPanel {
 
         studentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "id", "name", "age", "gender", "department", "gpa"
+                "id", "name", "age", "gender", "department", "gpa","UPDATE"
             }
         ));
+        studentTable.setRowHeight(35);
         jScrollPane2.setViewportView(studentTable);
 
        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 570, 213));
-
         search.setText("search");
         search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,15 +273,6 @@ public class ViewStudentPanel extends javax.swing.JPanel {
         searchtxt.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         searchtxt.setText("Search by name or ID:");
        add(searchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 30));
-
-        UpdateBtn.setLabel("Update");
-        UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateBtnActionPerformed(evt);
-            }
-        });
-       add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, -1));
-        UpdateBtn.getAccessibleContext().setAccessibleName("UpdateBtn");
 
        
     }
@@ -257,9 +299,14 @@ public class ViewStudentPanel extends javax.swing.JPanel {
                 found.getAge(),
                 found.getGender(),
                 found.getDepartment(),
-                found.getGpa()
+                found.getGpa(),
+                "UPDATE"
+                
             });
-        }   
+        }  
+        studentTable.getColumn("UPDATE").setCellRenderer(new updateBtn());
+        studentTable.getColumn("UPDATE").setCellEditor(new updateBtnEditor(studentTable, manager));
+
         
     }//GEN-LAST:event_searchActionPerformed
 
@@ -274,7 +321,6 @@ public class ViewStudentPanel extends javax.swing.JPanel {
    
 
    
-    private javax.swing.JButton UpdateBtn;
 
 //    private javax.swing.JScrollPane jScrollPane2;
 //    private javax.swing.JButton refresh;
@@ -297,9 +343,14 @@ public class ViewStudentPanel extends javax.swing.JPanel {
                 s.getAge(),
                 s.getGender(),
                 s.getDepartment(),
-                s.getGpa()
+                s.getGpa(),
+               "UPDATE"
             });
         }
+        studentTable.getColumn("UPDATE").setCellRenderer(new updateBtn());
+        studentTable.getColumn("UPDATE").setCellEditor(new updateBtnEditor(studentTable, manager));
+         studentTable.getColumn("UPDATE").setPreferredWidth(100);
+
     }
    
    private void refreshActionPreformed(java.awt.event.ActionEvent evt)
