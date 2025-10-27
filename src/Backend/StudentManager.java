@@ -57,21 +57,15 @@ public class StudentManager {
     }
 
     public Students searchStudent(String keyword) {
-        for (int i = 0; i < students.size(); i++) {
-            Students s = students.get(i);
-
-            if (String.valueOf((char) s.getID()).equals(keyword) || s.getFullName().equalsIgnoreCase(keyword)) {
-
-            if (String.valueOf(s.getID()).equals(keyword) || s.getFullName().equalsIgnoreCase(keyword)) {
-
-            if (String.valueOf((char) s.getID()).equals(keyword) || s.getFullName().equalsIgnoreCase(keyword)) {
-
-                return s;
-            }
-        }
-    }
-    }
-        return null;
+        keyword  = keyword.trim();
+      for(Students s : students){
+      if(Integer.toString(s.getID()).equals(keyword)|| s.getFullName().equalsIgnoreCase(keyword)){
+      return s;
+      }
+      
+      
+      }
+      return null;
     }
     public boolean updateStudent(int id, Students newdata) {
 
