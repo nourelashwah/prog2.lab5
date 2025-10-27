@@ -154,6 +154,11 @@ public class UpdatePanel extends JPanel {
     return;
 }
         float gpa=Float.parseFloat(GpaField.getText());
+        
+        
+        if(!Students.validGPA(gpa) || !Students.validAge(age) || !Students.validName(name) ){
+        return;
+        }
         Students updated=new Students(id,name,age,gender,department,gpa);
         manager.updateStudent(id, updated);
     }//GEN-LAST:event_SaveBtnActionPerformed

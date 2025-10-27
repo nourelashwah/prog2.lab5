@@ -1,2 +1,1 @@
-1646,gggg,33,Female,Computer and Communications Engineering,1.0
-6907,ooo,12,Female,Computer and Communications Engineering,2.0
+6907,ooo,30,Female,Computer and Communications Engineering,2.0
