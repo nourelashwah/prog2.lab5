@@ -28,13 +28,15 @@ import javax.swing.table.TableCellEditor;
 public class ViewStudentPanel extends javax.swing.JPanel {
 
     private StudentManager manager;
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewStudentPanel.class.getName());
 
     /**
      * Creates new form ViewStudentPanel
      */
-    public ViewStudentPanel(StudentManager manager) {
+    public ViewStudentPanel(StudentManager manager ) {
         this.manager  = manager;
+   
         initComponents();
         loadStudentTable(this.manager);
     }
@@ -171,9 +173,11 @@ return this;
 class updateBtnEditor extends  AbstractCellEditor implements TableCellEditor , ActionListener{
 private roundedbtn btn;
 private JTable tb;
+
 private StudentManager manager;
 private int row; 
 public updateBtnEditor (JTable tb , StudentManager manager){
+
 this.tb = tb;
 this.manager  = manager;
 btn = new roundedbtn("UPDATE", 15, 15);
@@ -202,8 +206,20 @@ btn = new roundedbtn("UPDATE", 15, 15);
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String id = (String) tb.getValueAt(this.row, 0);
+            String id = tb.getValueAt(this.row, 0).toString();
             Students s = manager.searchStudent(id);
+            if(s  == null){
+               JOptionPane.showMessageDialog(null, "Student not found!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+            
+            javax.swing.JFrame f = new  javax.swing.JFrame("UPDATE STUDENT");
+            f.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+            f.setSize(600, 400);
+            f.setLocationRelativeTo(null);
+            f.setContentPane(new UpdatePanel(manager, s));
+            f.setVisible(true);
+            }
             
             //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
