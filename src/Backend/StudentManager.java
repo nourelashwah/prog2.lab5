@@ -69,33 +69,13 @@ public class StudentManager {
     }
     public boolean updateStudent(int id, Students newdata) {
 
-        for (int i = 0; i < students.size(); i++) {
-            Students s = students.get(i);
-
-            if (s.getID() == id) {
-                s.setFullName(newdata.getFullName());
-                s.setAge(newdata.getAge());
-                s.setGender(newdata.getGender());
-                s.setDepartment(newdata.getDepartment());
-                s.setGpa(newdata.getGpa());
-
-            if (s.getID()== id) {
-                s  = newdata;
-
-            if (s.getID() == id) {
-                s.setFullName(newdata.getFullName());
-                s.setAge(newdata.getAge());
-                s.setGender(newdata.getGender());
-                s.setDepartment(newdata.getDepartment());
-                s.setGpa(newdata.getGpa());
-
-
+      Students s  = searchStudent(Integer.toString(id));
+if(s  !=null){
+   s = newdata;
                 JOptionPane.showMessageDialog(null, "STUDENT UPDATED SUCCESSFULLY!");
                 manager.saveToFile();
                 return true;
-            }
-        }
-    }
+       
     }
         JOptionPane.showMessageDialog(null, "STUDENT NOT FOUND!");
         return false;
