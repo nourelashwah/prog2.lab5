@@ -57,6 +57,7 @@ public class StudentManager {
     }
 
     public Students searchStudent(String keyword) {
+        keyword  = keyword.trim();
       for(Students s : students){
       if(Integer.toString(s.getID()).equals(keyword)|| s.getFullName().equalsIgnoreCase(keyword)){
       return s;
