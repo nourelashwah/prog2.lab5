@@ -21,7 +21,7 @@ private StudentManager manager = new StudentManager();
         welcomeL = new javax.swing.JLabel();
         addS = new roundedbtn("ADD STUDENT", 15, 15);
         viewS = new roundedbtn("VIEW STUDENTS", 15, 15);
-        searchupdateS = new roundedbtn("UPDATE STUDENTS", 15, 15);
+//        searchupdateS = new roundedbtn("UPDATE STUDENTS", 15, 15);
         deleteS = new roundedbtn("DELETE STUDENTS", 15, 15);
         addP = new javax.swing.JPanel();
         viewP = new javax.swing.JPanel();
@@ -40,15 +40,15 @@ private StudentManager manager = new StudentManager();
         addS.setForeground(textColor);
         viewS.setBackground(mainColor);
         viewS.setForeground(textColor);
-        searchupdateS.setBackground(mainColor);
-        searchupdateS.setForeground(textColor);
+//        searchupdateS.setBackground(mainColor);
+//        searchupdateS.setForeground(textColor);
         deleteS.setBackground(mainColor);
         deleteS.setForeground(textColor);
 
 
         addS.addActionListener(e -> mainP.setSelectedIndex(1));
 viewS.addActionListener(e -> mainP.setSelectedIndex(2));
-searchupdateS.addActionListener(e -> mainP.setSelectedIndex(3));
+//searchupdateS.addActionListener(e -> mainP.setSelectedIndex(3));
 deleteS.addActionListener(e -> mainP.setSelectedIndex(4));
 
 
@@ -72,8 +72,8 @@ deleteS.addActionListener(e -> mainP.setSelectedIndex(4));
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(WelcomePLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(WelcomePLayout.createSequentialGroup()
-                        .addComponent(searchupdateS)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+//                        .addComponent(searchupdateS)
+//                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                         .addComponent(deleteS))
                     .addGroup(WelcomePLayout.createSequentialGroup()
                         .addComponent(addS)
@@ -97,8 +97,8 @@ deleteS.addActionListener(e -> mainP.setSelectedIndex(4));
                     .addComponent(addS))
                 .addGap(58, 58, 58)
                 .addGroup(WelcomePLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteS)
-                    .addComponent(searchupdateS))
+                    .addComponent(deleteS))
+//                    .addComponent(searchupdateS)
                 .addContainerGap(79, Short.MAX_VALUE))
         );
 
@@ -142,7 +142,7 @@ deleteS.addActionListener(e -> mainP.setSelectedIndex(4));
 //            .addGap(0, 295, Short.MAX_VALUE)
 //        );
 
-        mainP.addTab("UPDATE  STUDENTS", new UpdatePanel(manager));
+//        mainP.addTab("UPDATE  STUDENTS", new UpdatePanel(manager));
 
         mainP.addTab("DELETE STUDENT", new DeletePanel(manager));
 

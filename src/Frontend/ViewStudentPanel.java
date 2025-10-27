@@ -36,7 +36,7 @@ public class ViewStudentPanel extends javax.swing.JPanel {
     public ViewStudentPanel(StudentManager manager) {
         this.manager  = manager;
         initComponents();
-        loadStudentTable();
+        loadStudentTable(this.manager);
     }
 
    
@@ -136,7 +136,7 @@ public class ViewStudentPanel extends javax.swing.JPanel {
 if(studentTable.isEditing()){
 studentTable.getCellEditor().stopCellEditing();
 }
-        loadStudentTable();
+        loadStudentTable(manager);
     }//GEN-LAST:event_refreshActionPerformed
 //
                                      
@@ -202,8 +202,9 @@ btn = new roundedbtn("UPDATE", 15, 15);
 
         @Override
         public void actionPerformed(ActionEvent e) {
-              JOptionPane.showMessageDialog(null, "CLICKED ROW "+this.row);
-              JOptionPane.showMessageDialog(null, "CLICKED ID "+tb.getValueAt(this.row, 0));
+            String id = (String) tb.getValueAt(this.row, 0);
+            Students s = manager.searchStudent(id);
+            
             //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
  
@@ -338,7 +339,7 @@ btn = new roundedbtn("UPDATE", 15, 15);
    
 
     
-     private void loadStudentTable() {
+     private void loadStudentTable(StudentManager manager) {
          if(studentTable.isEditing()){
 studentTable.getCellEditor().stopCellEditing();
 }
