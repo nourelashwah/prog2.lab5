@@ -53,23 +53,23 @@ public class Students extends Person {
     
     public static boolean handlingID(int id)
     {
-        if (id == 1) //the user wants to generate an ID
-        {
-            int newID = generateID();
-            int confirm = JOptionPane.showConfirmDialog(null, "This is your generated ID: " + newID + ". Accept?",
-                "Confirm ID",
-                JOptionPane.YES_NO_OPTION);
-            if (confirm == JOptionPane.YES_OPTION){
-                 JOptionPane.showMessageDialog(null,"Successfully generated an ID!");
-                 return true;
-            }
-            else {
-                JOptionPane.showMessageDialog(null, "Generation of ID failed. Try again please!","Error",JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-            
-        }
-        else {  //el user hwa eli dkhal ID
+//        if (id == 1) //the user wants to generate an ID
+//        {
+//            int newID = generateID();
+//            int confirm = JOptionPane.showConfirmDialog(null, "This is your generated ID: " + newID + ". Accept?",
+//                "Confirm ID",
+//                JOptionPane.YES_NO_OPTION);
+//            if (confirm == JOptionPane.YES_OPTION){
+//                 JOptionPane.showMessageDialog(null,"Successfully generated an ID!");
+//                 return true;
+//            }
+//            else {
+//                JOptionPane.showMessageDialog(null, "Generation of ID failed. Try again please!","Error",JOptionPane.ERROR_MESSAGE);
+//                return false;
+//            }
+//            
+//        }
+//        else {  //el user hwa eli dkhal ID
             if (!(database.searchStudent(String.valueOf(id)) == null)) 
             {
                 JOptionPane.showMessageDialog(null,"Error ID already exists!","Error",JOptionPane.ERROR_MESSAGE);
@@ -86,7 +86,7 @@ public class Students extends Person {
                  JOptionPane.showMessageDialog(null,"Valid entered ID!");
                  return true;
                 }
-            }
+           
         }
     }
     

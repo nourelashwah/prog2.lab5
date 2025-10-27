@@ -147,6 +147,8 @@ studentTable.getCellEditor().stopCellEditing();
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton refresh;
+    
+    
     private javax.swing.JButton search;
     private javax.swing.JTextField searchTxtField;
     private javax.swing.JLabel searchtxt;
@@ -212,7 +214,7 @@ btn = new roundedbtn("UPDATE", 15, 15);
     private void initComponents() {
 
         viewStudent = new javax.swing.JLabel();
-        refresh = new javax.swing.JButton();
+        refresh = new roundedbtn("REFRESH", 15, 15);
         jScrollPane2 = new javax.swing.JScrollPane();
         studentTable = new javax.swing.JTable();
         search = new javax.swing.JButton();
@@ -228,18 +230,19 @@ btn = new roundedbtn("UPDATE", 15, 15);
         viewStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         viewStudent.setText("view student");
         viewStudent.setToolTipText("view student");
-       add(viewStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 399, 50));
+       add(viewStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 399, 50));
 
-        refresh.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        refresh.setText("refresh");
+      refresh.setBackground(new Color(1, 130, 68));
+      refresh.setForeground(Color.WHITE);
+      refresh.setPreferredSize(new Dimension(120 ,40 ));
         refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshActionPerformed(evt);
             }
         });
-      add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 73, -1));
+      add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 40));
         refresh.getAccessibleContext().setAccessibleDescription("");
-
+    
         studentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},

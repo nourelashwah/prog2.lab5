@@ -46,10 +46,13 @@ private int arcH;
         }
 
         @Override
+        public boolean contains(int x, int y) {
+            return new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), arcW, arcH).contains(x, y); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        }
+
+        @Override
         public Dimension getPreferredSize() {
             Dimension size = super.getPreferredSize();
-            size.width = Math.max(size.width, size.height);
-            size.height = Math.max(size.width, size.height);
             return size;
 
         }
