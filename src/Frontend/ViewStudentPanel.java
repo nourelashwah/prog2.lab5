@@ -131,9 +131,11 @@ public class ViewStudentPanel extends javax.swing.JPanel {
 //
 //    }                     
 //                                           
-
+////
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-
+if(studentTable.isEditing()){
+studentTable.getCellEditor().stopCellEditing();
+}
         loadStudentTable();
     }//GEN-LAST:event_refreshActionPerformed
 //
@@ -199,6 +201,7 @@ btn = new roundedbtn("UPDATE", 15, 15);
         @Override
         public void actionPerformed(ActionEvent e) {
               JOptionPane.showMessageDialog(null, "CLICKED ROW "+this.row);
+              JOptionPane.showMessageDialog(null, "CLICKED ID "+tb.getValueAt(this.row, 0));
             //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
  
@@ -333,8 +336,15 @@ btn = new roundedbtn("UPDATE", 15, 15);
 
     
      private void loadStudentTable() {
+         if(studentTable.isEditing()){
+studentTable.getCellEditor().stopCellEditing();
+}
         DefaultTableModel model = (DefaultTableModel) studentTable.getModel();
         model.setRowCount(0);//to make sure table is empty men old data
+        if( manager.getAllStudents() == null ||  manager.getAllStudents().isEmpty()){
+        return;
+        
+        }
         for (int i = 0; i < manager.getAllStudents().size(); i++) {
             Students s = manager.getAllStudents().get(i);
             model.addRow(new Object[]{
@@ -350,13 +360,11 @@ btn = new roundedbtn("UPDATE", 15, 15);
         studentTable.getColumn("UPDATE").setCellRenderer(new updateBtn());
         studentTable.getColumn("UPDATE").setCellEditor(new updateBtnEditor(studentTable, manager));
          studentTable.getColumn("UPDATE").setPreferredWidth(100);
+studentTable.getColumn("UPDATE").setMaxWidth(100);
 
     }
    
-   private void refreshActionPreformed(java.awt.event.ActionEvent evt)
-   {
-   loadStudentTable();
-   }
+  
    
    
 }

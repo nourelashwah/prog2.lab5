@@ -17,6 +17,7 @@ public class DeletePanel extends javax.swing.JPanel {
 
 
     initComponents();
+    SetTable();
 LoadTable(this.manager.getAllStudents());
 
     }
@@ -138,22 +139,16 @@ RefreshBtn.setBackground(new java.awt.Color(138, 3, 77));
     }
 
     private void searchidActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    }                                        
-public final void LoadTable(List<Students> students){
-
-    DefaultTableModel model = (DefaultTableModel) deleteTable.getModel();
-    model.setRowCount(0);
-    for(Students s : students){
-    Object[] row = {
-    s.getFullName(),
-        s.getID(),
-        s.getGpa(),
-        false};
-    model.addRow(row);
-    
-    model.addTableModelListener(e ->{
+    }
+private final void SetTable(){
+      DefaultTableModel model = (DefaultTableModel) deleteTable.getModel();
+        model.addTableModelListener(e ->{
     if(e.getColumn() == 3 && e.getType() == javax.swing.event.TableModelEvent.UPDATE){
     int r = e.getFirstRow();
+    if(r<0 || r>=model.getRowCount()){
+    return;
+    
+    }
         Boolean checked = (Boolean) model.getValueAt(r, 3);
             if (checked != null && checked) {
                 int id = (int) model.getValueAt(r, 1);
@@ -176,6 +171,21 @@ public final void LoadTable(List<Students> students){
             }
         }
     });
+    
+    }
+public final void LoadTable(List<Students> students){
+
+    DefaultTableModel model = (DefaultTableModel) deleteTable.getModel();
+    model.setRowCount(0);
+    for(Students s : students){
+    Object[] row = {
+    s.getFullName(),
+        s.getID(),
+        s.getGpa(),
+        false};
+    model.addRow(row);
+    
+    
 }
     
     
