@@ -205,7 +205,7 @@ public class StudentPanel extends javax.swing.JPanel {
         
        
         manager.addStudent(s);
-        JOptionPane.showMessageDialog(this, "waslna hena");
+//        JOptionPane.showMessageDialog(this, "waslna hena");
         
         //han3ml clear tane
         idTXT.setText("");

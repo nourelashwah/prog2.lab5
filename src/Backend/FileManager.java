@@ -37,7 +37,7 @@ public class FileManager {
                 Students stu=students.get(i);
                 pw.println(stu.lineRepresentation());
             }
-            JOptionPane.showMessageDialog(null, "FILE SAVED SUCCESSFULLY!");
+//            JOptionPane.showMessageDialog(null, "FILE SAVED SUCCESSFULLY!");
         }catch(IOException e){
             JOptionPane.showMessageDialog(null, "ERROR SAVING FILE: "+e.getMessage());
         }

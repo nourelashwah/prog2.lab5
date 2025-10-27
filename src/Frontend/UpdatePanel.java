@@ -28,6 +28,8 @@ public class UpdatePanel extends JPanel {
         }
         
         initComponents();
+        setLayout(new java.awt.GridBagLayout());
+        add(UpdatePanel,new java.awt.GridBagConstraints());
         loadData(s);
     }
 
@@ -57,30 +59,43 @@ public class UpdatePanel extends JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setName("SearchUpdatePanel"); // NOI18N
+        setLayout(new java.awt.BorderLayout());
 
         jPanel1.setAlignmentX(1.0F);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         studentId.setText("ID:");
+        jPanel1.add(studentId, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 23, -1, -1));
 
         IdField.setText("jTextField1");
+        jPanel1.add(IdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 18, 372, -1));
 
         jLabel3.setText("Name:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 67, -1, -1));
 
         NameField.setText("jTextField1");
+        jPanel1.add(NameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 62, 372, -1));
 
         jLabel2.setText("Age:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 111, -1, -1));
 
         AgeField.setText("jTextField1");
+        jPanel1.add(AgeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 106, 372, -1));
 
         departmentField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer and Communications Engineering", "Mechatronics and Robotics Engineering", "Aerospace Engineering", "Electrical Engineering", "Biomedical Engineering", "Construction Engineering" }));
+        jPanel1.add(departmentField, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 194, -1, -1));
 
         GpaField.setText("jTextField1");
+        jPanel1.add(GpaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 238, 372, -1));
 
         jLabel4.setText("Gender:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 155, -1, -1));
 
         jLabel5.setText("Department:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 199, -1, -1));
 
         jLabel6.setText("GPA:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 243, -1, -1));
 
         SaveBtn.setText("Save");
         SaveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +103,7 @@ public class UpdatePanel extends JPanel {
                 SaveBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(SaveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 282, -1, -1));
 
         genderField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male" }));
         genderField.addActionListener(new java.awt.event.ActionListener() {
@@ -95,75 +111,7 @@ public class UpdatePanel extends JPanel {
                 genderFieldActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(799, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(studentId)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(NameField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AgeField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GpaField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(departmentField, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(IdField)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(SaveBtn)))
-                .addContainerGap(828, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(871, 871, 871)
-                    .addComponent(genderField, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(827, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(studentId))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(NameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(AgeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(44, 44, 44))
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(departmentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GpaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addComponent(SaveBtn)
-                .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(152, 152, 152)
-                    .addComponent(genderField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(152, Short.MAX_VALUE)))
-        );
+        jPanel1.add(genderField, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 150, 274, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -175,7 +123,7 @@ public class UpdatePanel extends JPanel {
         UpdatePanelLayout.setHorizontalGroup(
             UpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
         );
         UpdatePanelLayout.setVerticalGroup(
             UpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,22 +132,10 @@ public class UpdatePanel extends JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(UpdatePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(UpdatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(UpdatePanel, java.awt.BorderLayout.CENTER);
     }//GEN-END:initComponents
 
     private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
@@ -219,6 +155,8 @@ public class UpdatePanel extends JPanel {
     }//GEN-LAST:event_genderFieldActionPerformed
     public void loadData(Students stu){//loads selected data into form text fields 
         IdField.setText(String.valueOf(stu.getID()));
+        IdField.setEditable(false);
+
         NameField.setText(stu.getFullName());
         AgeField.setText(String.valueOf(stu.getAge()));
         genderField.setSelectedItem(stu.getGender());

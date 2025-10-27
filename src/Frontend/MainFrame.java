@@ -182,8 +182,8 @@ deleteS.addActionListener(e -> mainP.setSelectedIndex(4));
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         
-//        java.awt.EventQueue.invokeLater(() -> new loginFrame().setVisible(true));
-   java.awt.EventQueue.invokeLater(() -> new MainFrame().setVisible(true));
+       java.awt.EventQueue.invokeLater(() -> new loginFrame().setVisible(true));
+  // java.awt.EventQueue.invokeLater(() -> new MainFrame().setVisible(true));
     }
 
     private javax.swing.JButton addS;

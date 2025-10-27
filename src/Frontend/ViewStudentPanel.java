@@ -13,6 +13,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.AbstractCellEditor;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
@@ -38,7 +39,7 @@ public class ViewStudentPanel extends javax.swing.JPanel {
         this.manager  = manager;
    
         initComponents();
-        loadStudentTable(this.manager);
+        loadStudentTable(this.manager,"");
     }
 
    
@@ -138,7 +139,7 @@ public class ViewStudentPanel extends javax.swing.JPanel {
 if(studentTable.isEditing()){
 studentTable.getCellEditor().stopCellEditing();
 }
-        loadStudentTable(manager);
+        loadStudentTable(manager,"");
     }//GEN-LAST:event_refreshActionPerformed
 //
                                      
@@ -217,7 +218,7 @@ btn = new roundedbtn("UPDATE", 15, 15);
             f.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
             f.setSize(600, 400);
             f.setLocationRelativeTo(null);
-            f.setContentPane(new UpdatePanel(manager, s));
+            f.add(new UpdatePanel(manager, s),java.awt.BorderLayout.CENTER);
             f.setVisible(true);
             }
             
@@ -243,11 +244,11 @@ btn = new roundedbtn("UPDATE", 15, 15);
      setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         viewStudent.setBackground(new java.awt.Color(51, 51, 255));
-        viewStudent.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        viewStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        viewStudent.setFont(new java.awt.Font("Dialog", java.awt.Font.BOLD, 32)); // NOI18N
+        viewStudent.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         viewStudent.setText("view student");
         viewStudent.setToolTipText("view student");
-       add(viewStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 399, 50));
+       add(viewStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 400, 50));
 
       refresh.setBackground(new Color(1, 130, 68));
       refresh.setForeground(Color.WHITE);
@@ -257,7 +258,7 @@ btn = new roundedbtn("UPDATE", 15, 15);
                 refreshActionPerformed(evt);
             }
         });
-      add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 40));
+      add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, 120, 40));
         refresh.getAccessibleContext().setAccessibleDescription("");
     
         studentTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -274,24 +275,25 @@ btn = new roundedbtn("UPDATE", 15, 15);
         studentTable.setRowHeight(35);
         jScrollPane2.setViewportView(studentTable);
 
-       add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 570, 213));
+       add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 800, 400));
         search.setText("search");
         search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchActionPerformed(evt);
             }
         });
-     add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 70, 30));
+     add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 70, 30));
 
        
 
-        searchTxtField.setText("search here");
+      
+     
         searchTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchTxtFieldActionPerformed(evt);
             }
         });
-      add(searchTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 130, 30));
+      add(searchTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 130, 30));
 
         searchtxt.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         searchtxt.setText("Search by name or ID:");
@@ -308,28 +310,15 @@ btn = new roundedbtn("UPDATE", 15, 15);
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
         // TODO add your handling code here:
         String key=searchTxtField.getText().trim();
+      
         if(key.equals(""))
             JOptionPane.showMessageDialog(null, "Enter student name or ID","Error",JOptionPane.ERROR_MESSAGE);
         else if(manager.searchStudent(key)==null)
             JOptionPane.showMessageDialog(null,"Student not found","Error",JOptionPane.ERROR_MESSAGE);
-        else{//momkn hna n3ml helper method walla 7aga ll display b sefa 3amma 34an el repitition
-            Students found=manager.searchStudent(key);
-            DefaultTableModel model=(DefaultTableModel) studentTable.getModel();
-            model.setRowCount(0);
-            model.addRow(new Object[]{
-                found.getID(),
-                found.getFullName(),
-                found.getAge(),
-                found.getGender(),
-                found.getDepartment(),
-                found.getGpa(),
-                "UPDATE"
-                
-            });
-        }  
-        studentTable.getColumn("UPDATE").setCellRenderer(new updateBtn());
-        studentTable.getColumn("UPDATE").setCellEditor(new updateBtnEditor(studentTable, manager));
-
+        else{
+            loadStudentTable(manager, key);
+        
+        }
         
     }//GEN-LAST:event_searchActionPerformed
 
@@ -355,18 +344,25 @@ btn = new roundedbtn("UPDATE", 15, 15);
    
 
     
-     private void loadStudentTable(StudentManager manager) {
+     private void loadStudentTable(StudentManager manager,String key) {
          if(studentTable.isEditing()){
 studentTable.getCellEditor().stopCellEditing();
 }
         DefaultTableModel model = (DefaultTableModel) studentTable.getModel();
         model.setRowCount(0);//to make sure table is empty men old data
+         ArrayList <Students> st = new ArrayList<>();
         if( manager.getAllStudents() == null ||  manager.getAllStudents().isEmpty()){
         return;
         
+        }if(key.equals("") || key.isEmpty()){
+        
+        st  = manager.getAllStudents();
         }
-        for (int i = 0; i < manager.getAllStudents().size(); i++) {
-            Students s = manager.getAllStudents().get(i);
+        else{
+        st.add(manager.searchStudent(key));
+        }
+        for (int i = 0; i < st.size(); i++) {
+            Students s = st.get(i);
             model.addRow(new Object[]{
                 s.getID(),
                 s.getFullName(),
@@ -383,6 +379,7 @@ studentTable.getCellEditor().stopCellEditing();
 studentTable.getColumn("UPDATE").setMaxWidth(100);
 
     }
+  
    
   
    
